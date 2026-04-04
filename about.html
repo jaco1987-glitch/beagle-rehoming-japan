@@ -1,9 +1,4 @@
-
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -98,7 +93,7 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-@media(max-width:768px){
+@media(max-width:900px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
