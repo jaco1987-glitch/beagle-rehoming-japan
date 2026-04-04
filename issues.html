@@ -120,6 +120,9 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 .footer-links a:hover{color:var(--brown-light);}
 
 @media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
   nav{padding:.9rem 1.2rem;}
   .page-hero{padding:5.5rem 1.8rem 3rem;}
   .data-section,.issue-section,.impact-section,.why-section{padding:3.5rem 1.8rem;}
