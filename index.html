@@ -559,9 +559,9 @@ function goSlide(i){
   document.querySelectorAll('.hero-slide')[curSlide].classList.add('active');
   document.querySelectorAll('.hero-dot')[curSlide].classList.add('active');
   clearInterval(slideT);
-  slideT=setInterval(function(){goSlide((curSlide+1)%heroPhotos.length);},5000);
+  slideT=setInterval(function(){goSlide((curSlide+1)%6);},5000);
 }
-slideT=setInterval(function(){goSlide((curSlide+1)%heroPhotos.length);},5000);
+slideT=setInterval(function(){goSlide((curSlide+1)%6);},5000);
 </script>
 </body>
 </html>
