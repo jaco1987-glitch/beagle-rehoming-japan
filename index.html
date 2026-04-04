@@ -555,10 +555,10 @@ var heroSlides=document.getElementById('heroSlides'),heroDots=document.getElemen
 
 function goSlide(i){
   document.querySelectorAll('.hero-slide')[curSlide].classList.remove('active');
-  document.querySelectorAll('.hero-dot')[curSlide].classList.remove('active');
+  document.querySelectorAll('.dot')[curSlide].classList.remove('active');
   curSlide=i;
   document.querySelectorAll('.hero-slide')[curSlide].classList.add('active');
-  document.querySelectorAll('.hero-dot')[curSlide].classList.add('active');
+  document.querySelectorAll('.dot')[curSlide].classList.add('active');
   clearInterval(slideT);
   slideT=setInterval(function(){goSlide((curSlide+1)%6);},5000);
 }
