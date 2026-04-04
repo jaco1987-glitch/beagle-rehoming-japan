@@ -300,7 +300,9 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 </footer>
 
 <script>
-function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');}
-</script>
+function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);}
+
+function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
+(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();</script>
 </body>
 </html>
