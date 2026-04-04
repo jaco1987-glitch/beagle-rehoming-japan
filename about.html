@@ -96,6 +96,12 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   .founder-card{grid-template-columns:1fr;gap:1.5rem;}
   footer{flex-direction:column;text-align:center;padding:1.8rem;}
 }
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
 </style>
 </head>
 <body>
@@ -107,6 +113,7 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
     <span class="nav-logo-text">Beagle Rehoming Japan</span>
   </a>
   <ul class="nav-links">
+    <li><a href="#hero"><span class="ja">TOP</span><span class="en">TOP</span></a></li>
     <li><a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues &amp; Mission</span></a></li>
     <li><a href="about.html" class="active"><span class="ja">団体について</span><span class="en">About</span></a></li>
     <li><a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a></li>
@@ -114,6 +121,9 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
     <li><a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a></li>
     <li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span><span class="en">Donate (Coming Soon)</span></a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
   <div class="lang-toggle">
     <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>
     <button id="btn-en" onclick="setLang('en')">EN</button>
@@ -246,6 +256,8 @@ function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.
 // Update nav links with lang param
 function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
 // Auto detect lang from URL
-(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();</script>
+(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
+function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});</script>
 </body>
 </html>
