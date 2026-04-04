@@ -538,8 +538,22 @@ const ADOPTION_AVAILABLE = true;
 })();
 
 // Lang
-function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');}
+function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);}
 
+// Update nav links with lang param
+function updateNavLang(l){
+  document.querySelectorAll('.nav-links a[href]').forEach(function(a){
+    var href = a.getAttribute('href');
+    if(href && href !== '#' && !href.startsWith('http')){
+      a.href = href.split('?')[0] + (l==='en' ? '?lang=en' : '');
+    }
+  });
+}
+// Auto detect lang from URL
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}
+})();
 // Nav scroll
 window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
 
