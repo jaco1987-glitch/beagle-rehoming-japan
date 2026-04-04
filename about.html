@@ -53,7 +53,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:cen
 .mv-card-text{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);line-height:1.7;font-style:italic;}
 
 /* ABOUT */
-.about-section{padding:5rem 5rem;background:var(--cream);}
+.about-section{padding:5rem 5rem;background:var(--cream);position:relative;overflow:hidden;}
+.about-section::after{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:420px;height:420px;background:url("images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png") center/contain no-repeat;opacity:.08;pointer-events:none;}
 .about-body{font-size:.95rem;line-height:2;color:var(--gray);max-width:700px;}
 .about-body p{margin-bottom:1.2rem;}
 .about-body p:last-child{margin-bottom:0;}
