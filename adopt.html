@@ -197,6 +197,8 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   /* bridge diagram mobile */
   .bridge-top{grid-template-columns:1fr;padding:1.2rem 1rem;}
   .bridge-arrow{padding:.4rem 0;}
+  .bridge-arrow-head{font-size:0;}
+  .bridge-arrow-head::after{content:"\2193";font-size:1.1rem;color:var(--brown-light);font-family:Arial,sans-serif;}
 
   .bridge-connectors{display:none;}
 }
@@ -426,12 +428,12 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
         <div class="bridge-node-title"><span class="ja">研究施設</span><span class="en">Research Facility</span></div>
         <div class="bridge-node-sub"><span class="ja">実験を終えたビーグルを提供</span><span class="en">Provides post-research beagles</span></div>
       </div>
-      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head">&#8595;</div></div>
+      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head">&#8594;</div></div>
       <div class="bridge-node">
         <div class="bridge-node-title"><span class="ja">ブリーダー</span><span class="en">Breeder</span></div>
         <div class="bridge-node-sub"><span class="ja">研究施設とのコンタクト・引き取り・輸送</span><span class="en">Liaising with facilities, pickup & transport</span></div>
       </div>
-      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head">&#8595;</div></div>
+      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head">&#8594;</div></div>
       <div class="bridge-node">
         <div class="bridge-node-title"><span class="ja">里親</span><span class="en">Adoptive Family</span></div>
         <div class="bridge-node-sub"><span class="ja">ビーグルを家族として迎える</span><span class="en">Welcomes beagle into their home</span></div>
