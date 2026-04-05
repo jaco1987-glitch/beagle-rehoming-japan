@@ -596,6 +596,28 @@ function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=docum
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
 function toggleFaq(el){el.classList.toggle('open');}
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
+
+function applyBridgeLayout(){
+  var w=window.screen.width/window.devicePixelRatio;
+  var isMobile=(w<=768);
+  var top=document.querySelector('.bridge-top');
+  var arrows=document.querySelectorAll('.bridge-arrow');
+  var pcs=document.querySelectorAll('.arrow-pc');
+  var sps=document.querySelectorAll('.arrow-sp');
+  if(!top)return;
+  if(isMobile){
+    top.style.gridTemplateColumns='1fr';
+    arrows.forEach(function(a){a.style.padding='.4rem 0';});
+    pcs.forEach(function(e){e.style.display='none';});
+    sps.forEach(function(e){e.style.display='inline';});
+  }else{
+    top.style.gridTemplateColumns='';
+    pcs.forEach(function(e){e.style.display='';});
+    sps.forEach(function(e){e.style.display='none';});
+  }
+}
+applyBridgeLayout();
+window.addEventListener('resize',applyBridgeLayout);
 </script>
 </body>
 </html>
