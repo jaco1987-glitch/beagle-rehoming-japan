@@ -583,62 +583,12 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 </footer>
 
 <script>
-function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');}
-
-// PDF data removed - using Google Drive
-  "20211116_pdf": "https://drive.google.com/file/d/1S9viQjnX-5C_0KmxxoaLTkvIDsFGN4sA/view?usp=drive_link",
-  "20230608_pdf": "https://drive.google.com/file/d/1chcCaayuuZfjMc891_wYUwsbGsGsSzp9/view?usp=drive_link",
-  "20230928_pdf": "https://drive.google.com/file/d/1fnxKbvaOiEEWUM3-Jsci56FFEgXDB5Eg/view?usp=drive_link",
-  "20231208_pdf": "https://drive.google.com/file/d/1aZ8-2fjp3jKDWQ6NShpAB-j2bw5EI6jb/view?usp=drive_link",
-  "20240711_pdf": "https://drive.google.com/file/d/1wozwr4HfNog8NruOk4qXFfXpF0y8YBKG/view?usp=drive_link",
-  "20240910_pdf": "https://drive.google.com/file/d/1_hJIlqLrwRW6yGyFfNO9gbfSoAZqcIr7/view?usp=drive_link",
-  "20250214_1_pdf": "https://drive.google.com/file/d/1xSyzk8V3raOP40WU_HLDrOZOt94B2Bni/view?usp=drive_link",
-  "20250214_2_pdf": "https://drive.google.com/file/d/1e7-W8oyPYkuJ7poRd1lVu_8p_RR82_0l/view?usp=drive_link",
-  "20250612_pdf": "https://drive.google.com/file/d/1pmiPueOQeaHpkhRiUbDsmTCAcOe69L31/view?usp=drive_link",
-  "20250820_pdf": "https://drive.google.com/file/d/11s8_NH_rRHOyT-QhOJPjPb1bkXuOIXmY/view?usp=drive_link",
-  "20260206_pdf": "https://drive.google.com/file/d/1Sy43Oe2VUHx6MIPWh48_xQpwfwOakTdp/view?usp=drive_link",
-};
-
-// ====================================================
-// Google Drive PDF URLs
-// 手順: Google DriveでPDFを「リンクを知っている全員」に公開し
-//       共有URLからFILE_IDを取得して以下に入力してください
-// 共有URL例: https://drive.google.com/file/d/XXXXXXXX/view
-// ====================================================
-const GDRIVE_URLS = {
-  "20260206_pdf": "https://drive.google.com/file/d/1Sy43Oe2VUHx6MIPWh48_xQpwfwOakTdp/view?usp=drive_link",  // 2026年2月6日（ご紹介資料）
-  "20250820_pdf": "https://drive.google.com/file/d/11s8_NH_rRHOyT-QhOJPjPb1bkXuOIXmY/view?usp=drive_link",  // 2025年8月20日（募集資料）
-  "20250612_pdf": "https://drive.google.com/file/d/1pmiPueOQeaHpkhRiUbDsmTCAcOe69L31/view?usp=drive_link",  // 2025年6月12日（イヌ譲渡）
-  "20250214_2_pdf": "https://drive.google.com/file/d/1e7-W8oyPYkuJ7poRd1lVu_8p_RR82_0l/view?usp=drive_link",  // 2025年2月14日②（資料2_6頭）
-  "20250214_1_pdf": "https://drive.google.com/file/d/1xSyzk8V3raOP40WU_HLDrOZOt94B2Bni/view?usp=drive_link",  // 2025年2月14日①（資料1_4頭）
-  "20240910_pdf": "https://drive.google.com/file/d/1_hJIlqLrwRW6yGyFfNO9gbfSoAZqcIr7/view?usp=drive_link",  // 2024年9月10日（Rehomingイヌ）
-  "20240711_pdf": "https://drive.google.com/file/d/1wozwr4HfNog8NruOk4qXFfXpF0y8YBKG/view?usp=drive_link",  // 2024年7月11日（譲渡情報）
-  "20231208_pdf": "https://drive.google.com/file/d/1aZ8-2fjp3jKDWQ6NShpAB-j2bw5EI6jb/view?usp=drive_link",  // 2023年12月8日（タテ君）
-  "20230928_pdf": "https://drive.google.com/file/d/1fnxKbvaOiEEWUM3-Jsci56FFEgXDB5Eg/view?usp=drive_link",  // 2023年9月28日（個体情報）
-  "20230608_pdf": "https://drive.google.com/file/d/1chcCaayuuZfjMc891_wYUwsbGsGsSzp9/view?usp=drive_link",  // 2023年6月8日（2023ビーグルR）
-  "20211116_pdf": "https://drive.google.com/file/d/1S9viQjnX-5C_0KmxxoaLTkvIDsFGN4sA/view?usp=drive_link",  // 2021年11月16日（マーシャル犬里親）
-};
-
-function openAdoptPDF(key) {
-  var url = GDRIVE_URLS[key];
-  if (!url || url === "") {
-    alert("URLが設定されていません。管理者にお問い合わせください。");
-    return;
-  }
-  window.open(url, '_blank');
-}
-
-
-function toggleFaq(btn){
-  var item=btn.parentElement;
-  var isOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(function(el){el.classList.remove('open');});
-  if(!isOpen)item.classList.add('open');
-}
-
+function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l!=='en');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);}
+function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
 function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
-function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
-(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();</script>
+function toggleFaq(el){el.classList.toggle('open');}
+(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
+</script>
 </body>
 </html>
