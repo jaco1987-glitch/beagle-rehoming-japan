@@ -125,7 +125,11 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.open span:nth-child(2){opacity:0;}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+.hide-mobile{display:table-cell;}
+.pct-mobile{display:none;font-size:.7rem;color:var(--gray);}
 @media(max-width:1280px){
+  .hide-mobile{display:none;}
+  .pct-mobile{display:inline;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
@@ -191,36 +195,36 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
           <th><span class="ja">動物種</span><span class="en">Species</span></th>
           <th class="num"><span class="ja">現在（2024年度）</span><span class="en">FY2024</span></th>
           <th class="num"><span class="ja">過去ピーク</span><span class="en">Peak</span></th>
-          <th class="num"><span class="ja">ピーク比</span><span class="en">% of Peak</span></th>
+          <th class="num hide-mobile"><span class="ja">ピーク比</span><span class="en">% of Peak</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td class="species"><span class="ja">マウス＋ラット</span><span class="en">Mice + Rats</span></td>
           <td class="num">~2,872,000</td>
-          <td class="num muted">~13,200,000</td>
-          <td class="num pct-cell">~22%</td>
+          <td class="num muted">~13,200,000<br><small class="pct-mobile">(~22%)</small></td>
+          <td class="num pct-cell hide-mobile">~22%</td>
         </tr>
         <tr>
           <td class="species"><span class="ja">ウサギ</span><span class="en">Rabbits</span></td>
           <td class="num">21,420</td>
-          <td class="num muted">~334,000</td>
-          <td class="num pct-cell">~6%</td>
+          <td class="num muted">~334,000<br><small class="pct-mobile">(~6%)</small></td>
+          <td class="num pct-cell hide-mobile">~6%</td>
         </tr>
         <tr class="highlight-dog">
           <td class="species">
-            <span class="ja">イヌ<span class="dog-badge">● ビーグル</span></span>
-            <span class="en">Dogs<span class="dog-badge">● Beagle</span></span>
+            <span class="ja">イヌ<br><span class="dog-badge">● ビーグル</span></span>
+            <span class="en">Dogs<br><span class="dog-badge">● Beagle</span></span>
           </td>
           <td class="num dog-now-num">3,130</td>
-          <td class="num muted">~39,000</td>
-          <td class="num dog-pct">~8%</td>
+          <td class="num muted">~39,000<br><small class="pct-mobile">(~8%)</small></td>
+          <td class="num dog-pct hide-mobile">~8%</td>
         </tr>
         <tr>
           <td class="species"><span class="ja">サル</span><span class="en">Non-human Primates</span></td>
           <td class="num">422</td>
-          <td class="num muted">~3,462</td>
-          <td class="num pct-cell">~12%</td>
+          <td class="num muted">~3,462<br><small class="pct-mobile">(~12%)</small></td>
+          <td class="num pct-cell hide-mobile">~12%</td>
         </tr>
       </tbody>
     </table>
