@@ -113,7 +113,7 @@ main{padding:3.5rem 5rem;}
 .bridge-node-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem;}
 .bridge-node-sub{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.55;}
 .bridge-arrow{display:flex;align-items:center;justify-content:center;padding:0 .5rem;}
-.bridge-arrow-line{flex:1;height:1.5px;background:rgba(196,149,106,.4);min-width:20px;}
+.bridge-arrow-line{width:24px;height:1.5px;background:rgba(196,149,106,.4);flex-shrink:0;}
 .bridge-arrow-head{color:var(--brown-light);font-size:1.1rem;}
 .bridge-connectors{display:grid;grid-template-columns:1fr 1fr 1fr;height:20px;padding:0 calc(2rem + 10%);}
 .bridge-connector-line{border-left:1.5px dashed rgba(196,149,106,.3);height:100%;margin:0 auto;}
@@ -195,8 +195,9 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   footer{flex-direction:column;text-align:center;padding:1.8rem;}
 
   /* bridge diagram mobile */
-  .bridge-top{grid-template-columns:1fr;grid-template-rows:auto;padding:1.2rem 1rem;}
-  .bridge-arrow{transform:rotate(90deg);padding:.4rem 0;}
+  .bridge-top{grid-template-columns:1fr;padding:1.2rem 1rem;}
+  .bridge-arrow{flex-direction:column;padding:.4rem 0;}
+  .bridge-arrow-line{width:1.5px;height:20px;}
   .bridge-connectors{display:none;}
 }
 
