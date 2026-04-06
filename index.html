@@ -589,6 +589,8 @@ slideT=setInterval(function(){goSlide((curSlide+1)%6);},5000);
 
 function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
 // Close menu on link click
-document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});</script>
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
+if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+</script>
 </body>
 </html>
