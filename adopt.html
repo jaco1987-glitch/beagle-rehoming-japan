@@ -107,17 +107,17 @@ main{padding:3.5rem 5rem;}
 .program-section .divider{background:var(--brown-light);}
 
 /* BRIDGE DIAGRAM */
-.bridge-diagram{margin:2rem 0;display:flex;flex-direction:column;gap:0;}
-.bridge-top{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px 12px 0 0;padding:1.8rem 2rem;}
+.bridge-diagram{margin:2rem 0;display:flex;flex-direction:row;align-items:stretch;gap:0;}
+.bridge-top{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:0 12px 0 0;flex:1;padding:1.8rem 2rem;}
 .bridge-node{text-align:center;padding:.4rem 1rem;}
 .bridge-node-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.3rem;}
 .bridge-node-sub{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.55;}
 .bridge-arrow{display:flex;align-items:center;justify-content:center;padding:0 .5rem;}
 .bridge-arrow-line{display:none;}
 .bridge-arrow-head{width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid var(--brown-light);flex-shrink:0;}
-.bridge-connectors{display:grid;grid-template-columns:1fr 1fr 1fr;height:20px;padding:0 calc(2rem + 10%);}
+.bridge-connectors{display:grid;grid-template-columns:1fr 1fr 1fr;height:20px;padding:0 calc(2rem + 10%);border-radius:0 0 12px 0;flex:1;}
 .bridge-connector-line{border-left:1.5px dashed rgba(196,149,106,.3);height:100%;margin:0 auto;}
-.bridge-brj{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:2rem;background:var(--brown-dark);border:1px solid rgba(196,149,106,.35);border-top:2.5px solid var(--brown-light);border-radius:0 0 12px 12px;padding:1.5rem 2rem;flex-wrap:wrap;}
+.bridge-brj{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:var(--brown-dark);border:1px solid rgba(196,149,106,.35);border-right:2.5px solid var(--brown-light);border-radius:12px 0 0 12px;padding:1.5rem 2rem;flex-shrink:0;}
 .bridge-brj-left{display:flex;align-items:center;gap:.9rem;flex-shrink:0;}
 .bridge-brj-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white);}
 .bridge-brj-tagline{font-size:.68rem;color:rgba(255,255,255,.45);margin-top:.15rem;}
@@ -424,26 +424,7 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   </p>
 
   <div class="bridge-diagram">
-    <div class="bridge-top">
-      <div class="bridge-node">
-        <div class="bridge-node-title"><span class="ja">研究施設</span><span class="en">Research Facility</span></div>
-        <div class="bridge-node-sub"><span class="ja">実験を終えたビーグルを提供</span><span class="en">Provides post-research beagles</span></div>
-      </div>
-      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head"></div></div>
-      <div class="bridge-node">
-        <div class="bridge-node-title"><span class="ja">ブリーダー</span><span class="en">Breeder</span></div>
-        <div class="bridge-node-sub"><span class="ja">研究施設とのコンタクト・引き取り・輸送</span><span class="en">Liaising with facilities, pickup & transport</span></div>
-      </div>
-      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head"></div></div>
-      <div class="bridge-node">
-        <div class="bridge-node-title"><span class="ja">里親</span><span class="en">Adoptive Family</span></div>
-        <div class="bridge-node-sub"><span class="ja">ビーグルを家族として迎える</span><span class="en">Welcomes beagle into their home</span></div>
-      </div>
-    </div>
-    <div class="bridge-connectors">
-      <div class="bridge-connector-line"></div>
-      <div class="bridge-connector-line"></div>
-      <div class="bridge-connector-line"></div>
+    <div class="bridge-connector-line"></div>
     </div>
     <div class="bridge-brj">
       <div class="bridge-brj-left">
@@ -466,8 +447,30 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
           <div class="bridge-brj-tags-row">
             <span class="bridge-tag cream"><span class="ja">情報提供</span><span class="en">Info</span></span>
             <span class="bridge-tag cream"><span class="ja">マッチング</span><span class="en">Matching</span></span>
-            <span class="bridge-tag cream"><span class="ja">継続サポート</span><span class="en">Aftercare</span></span>
+            <span class="bridge-tag cream"><span class="ja">継続サポート</span><span class="en">Aftercare</span></span
+      <div class="bridge-right" style="display:flex;flex-direction:column;flex:1;">
+      <div class="bridge-top">
+      <div class="bridge-node">
+        <div class="bridge-node-title"><span class="ja">研究施設</span><span class="en">Research Facility</span></div>
+        <div class="bridge-node-sub"><span class="ja">実験を終えたビーグルを提供</span><span class="en">Provides post-research beagles</span></div>
+      </div>
+      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head"></div></div>
+      <div class="bridge-node">
+        <div class="bridge-node-title"><span class="ja">ブリーダー</span><span class="en">Breeder</span></div>
+        <div class="bridge-node-sub"><span class="ja">研究施設とのコンタクト・引き取り・輸送</span><span class="en">Liaising with facilities, pickup & transport</span></div>
+      </div>
+      <div class="bridge-arrow"><div class="bridge-arrow-line"></div><div class="bridge-arrow-head"></div></div>
+      <div class="bridge-node">
+        <div class="bridge-node-title"><span class="ja">里親</span><span class="en">Adoptive Family</span></div>
+        <div class="bridge-node-sub"><span class="ja">ビーグルを家族として迎える</span><span class="en">Welcomes beagle into their home</span></div>
+      </div>
+    </div>
+    <div class="bridge-connectors">
+      <div class="bridge-connector-line"></div>
+      <div class="bridge-connector-line"></div>
+      >
           </div>
+      </div>
         </div>
       </div>
     </div>
