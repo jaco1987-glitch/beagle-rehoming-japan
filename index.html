@@ -547,7 +547,7 @@ const ADOPTION_AVAILABLE = true;
 })();
 
 // Lang
-function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);}
+function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);var u=new URL(window.location.href);if(l==='en'){u.searchParams.set('lang','en');}else{u.searchParams.delete('lang');}history.replaceState(null,'',u.toString());}
 
 // Update nav links with lang param
 function updateNavLang(l){
