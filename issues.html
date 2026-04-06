@@ -323,6 +323,8 @@ function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.
 function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
 function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
-document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});</script>
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
+if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+</script>
 </body>
 </html>
