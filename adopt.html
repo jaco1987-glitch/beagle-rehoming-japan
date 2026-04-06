@@ -593,26 +593,25 @@ document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener
 function toggleFaq(el){el.classList.toggle('open');}
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
 
-function updateBridgeArrows(){
-  var top=document.querySelector('.bridge-top');
-  var heads=document.querySelectorAll('.bridge-arrow-head');
-  if(!top||!heads.length)return;
-  var w=top.getBoundingClientRect().width;
-  var isMobile=(w<600);
-  heads.forEach(function(h){
-    if(isMobile){
-      h.style.cssText='width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:0;border-bottom:9px solid #C4956A;flex-shrink:0;';
-    }else{
-      h.style.cssText='width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #C4956A;border-right:0;flex-shrink:0;';
-    }
-  });
-}
-updateBridgeArrows();
-if(window.ResizeObserver){
-  var ro=new ResizeObserver(updateBridgeArrows);
-  var top=document.querySelector('.bridge-top');
-  if(top)ro.observe(top);
-}
+
+document.addEventListener('DOMContentLoaded', function(){
+  function updateArrows(){
+    var w = document.documentElement.clientWidth;
+    var heads = document.querySelectorAll('.bridge-arrow-head');
+    heads.forEach(function(h){
+      if(w <= 900){
+        h.style.cssText = 'width:0;height:0;border-left:6px solid transparent !important;border-right:6px solid transparent !important;border-top:0 !important;border-bottom:9px solid #C4956A !important;flex-shrink:0;';
+      } else {
+        h.style.cssText = 'width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #C4956A;border-right:0;flex-shrink:0;';
+      }
+    });
+    // bridge-topのグリッドも切り替え
+    var top = document.querySelector('.bridge-top');
+    if(top) top.style.gridTemplateColumns = w <= 900 ? '1fr' : '';
+  }
+  updateArrows();
+  window.addEventListener('resize', updateArrows);
+});
 </script>
 </body>
 </html>
