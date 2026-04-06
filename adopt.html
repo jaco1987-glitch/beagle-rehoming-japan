@@ -592,6 +592,27 @@ function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=docum
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
 function toggleFaq(el){el.classList.toggle('open');}
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
+
+function updateBridgeArrows(){
+  var top=document.querySelector('.bridge-top');
+  var heads=document.querySelectorAll('.bridge-arrow-head');
+  if(!top||!heads.length)return;
+  var w=top.getBoundingClientRect().width;
+  var isMobile=(w<600);
+  heads.forEach(function(h){
+    if(isMobile){
+      h.style.cssText='width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:0;border-bottom:9px solid #C4956A;flex-shrink:0;';
+    }else{
+      h.style.cssText='width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #C4956A;border-right:0;flex-shrink:0;';
+    }
+  });
+}
+updateBridgeArrows();
+if(window.ResizeObserver){
+  var ro=new ResizeObserver(updateBridgeArrows);
+  var top=document.querySelector('.bridge-top');
+  if(top)ro.observe(top);
+}
 </script>
 </body>
 </html>
