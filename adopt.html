@@ -194,12 +194,10 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   .conditions-grid{grid-template-columns:1fr;}
   footer{flex-direction:column;text-align:center;padding:1.8rem;}
 
-  /* bridge diagram mobile */
-  .bridge-top{grid-template-columns:1fr;padding:1.2rem 1rem;}
+    /* bridge diagram mobile */
+  .bridge-top{grid-template-columns:1fr !important;padding:1.2rem 1rem;}
   .bridge-arrow{padding:.4rem 0;}
-  .bridge-arrow-head{font-size:0;}
-  .bridge-arrow-head::after{content:"\2193";font-size:1.1rem;color:var(--brown-light);font-family:Arial,sans-serif;}
-
+  .bridge-arrow-head{border-left:6px solid transparent !important;border-right:6px solid transparent !important;border-top:0 !important;border-bottom:9px solid var(--brown-light) !important;}
   .bridge-connectors{display:none;}
 }
 
@@ -594,38 +592,6 @@ function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=docum
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
 function toggleFaq(el){el.classList.toggle('open');}
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
-
-function applyBridgeLayout(){
-  var w=window.innerWidth;
-  var isMobile=(w<=900);
-  var top=document.querySelector('.bridge-top');
-  var arrows=document.querySelectorAll('.bridge-arrow');
-  var heads=document.querySelectorAll('.bridge-arrow-head');
-  if(!top)return;
-  if(isMobile){
-    top.style.gridTemplateColumns='1fr';
-    arrows.forEach(function(a){a.style.padding='.4rem 0';});
-    heads.forEach(function(h){
-      h.style.borderLeft='6px solid transparent';
-      h.style.borderRight='6px solid transparent';
-      h.style.borderTop='0';
-      h.style.borderBottom='9px solid #C4956A';
-      h.style.width='0';h.style.height='0';
-    });
-  }else{
-    top.style.gridTemplateColumns='';
-    arrows.forEach(function(a){a.style.padding='';});
-    heads.forEach(function(h){
-      h.style.borderLeft='9px solid #C4956A';
-      h.style.borderRight='';
-      h.style.borderTop='6px solid transparent';
-      h.style.borderBottom='6px solid transparent';
-      h.style.width='0';h.style.height='0';
-    });
-  }
-}
-applyBridgeLayout();
-window.addEventListener('resize',applyBridgeLayout);
 </script>
 </body>
 </html>
