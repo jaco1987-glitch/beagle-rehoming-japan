@@ -602,6 +602,8 @@ function toggleFaq(el){el.classList.toggle('open');}
   window.addEventListener('resize', updateArrows);
 });
 ;
+
+if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
 </script>
 </body>
 </html>
