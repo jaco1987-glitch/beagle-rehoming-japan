@@ -586,24 +586,53 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 </footer>
 
 <script>
-function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l!=='en');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);var u=new URL(window.location.href);if(l==='en'){u.searchParams.set('lang','en');}else{u.searchParams.delete('lang');}history.replaceState(null,'',u.toString());}
+function setLang(l){
+  document.body.classList.toggle('lang-en',l==='en');
+  var a=document.getElementById('btn-ja'),b=document.getElementById('btn-en');
+  if(a)a.classList.toggle('active',l!=='en');
+  if(b)b.classList.toggle('active',l==='en');
+  var u=new URL(window.location.href);
+  if(l==='en'){u.searchParams.set('lang','en');}else{u.searchParams.delete('lang');}
+  history.replaceState(null,'',u.toString());
+  updateNavLang(l);
+}
 if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
-function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
-function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
-document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
-function toggleFaq(el){el.classList.toggle('open');}
-(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
-
-
-    // bridge-topのグリッドも切り替え
-    var top = document.querySelector('.bridge-top');
-    if(top) top.style.gridTemplateColumns = w <= 900 ? '1fr' : '';
-  }
-  updateArrows();
-  window.addEventListener('resize', updateArrows);
+function updateNavLang(l){
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    var href=a.getAttribute('href');
+    if(!href||href.startsWith('#'))return;
+    var u=new URL(href,window.location.href);
+    if(l==='en'){u.searchParams.set('lang','en');}else{u.searchParams.delete('lang');}
+    a.setAttribute('href',u.pathname+u.search+(u.hash||''));
+  });
+}
+function toggleMenu(){
+  document.querySelector('.nav-links').classList.toggle('open');
+}
+function toggleFaq(el){
+  var item=el.closest('.faq-item');
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)item.classList.add('open');
+}
+function updateBridgeArrows(){
+  var top=document.querySelector('.bridge-top');
+  var heads=document.querySelectorAll('.bridge-arrow-head');
+  if(!top||!heads.length)return;
+  var w=top.getBoundingClientRect().width;
+  heads.forEach(function(h){
+    if(w<600){
+      h.style.cssText='width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:0;border-bottom:9px solid #C4956A;flex-shrink:0;';
+    }else{
+      h.style.cssText='width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #C4956A;border-right:0;flex-shrink:0;';
+    }
+  });
+}
+window.addEventListener('load',updateBridgeArrows);
+window.addEventListener('resize',updateBridgeArrows);
+document.addEventListener('click',function(e){
+  if(e.target.closest('.adopt-anchor-link'))setTimeout(updateBridgeArrows,50);
 });
-;
-
 </script>
 </body>
 </html>
