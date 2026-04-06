@@ -391,6 +391,8 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 <script>
 function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');var u=new URL(window.location.href);if(l==='en'){u.searchParams.set('lang','en');}else{u.searchParams.delete('lang');}history.replaceState(null,'',u.toString());}
 
-function toggleMenu(){var nav=document.querySelector(".nav-links");var btn=document.getElementById("hamburger");nav.classList.toggle("open");btn.classList.toggle("open");}</script>
+function toggleMenu(){var nav=document.querySelector(".nav-links");var btn=document.getElementById("hamburger");nav.classList.toggle("open");btn.classList.toggle("open");}
+if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+</script>
 </body>
 </html>
