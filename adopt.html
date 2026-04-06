@@ -596,8 +596,8 @@ function toggleFaq(el){el.classList.toggle('open');}
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
 
 function applyBridgeLayout(){
-  var w=window.screen.width/window.devicePixelRatio;
-  var isMobile=(w<=768);
+  var w=window.innerWidth;
+  var isMobile=(w<=900);
   var top=document.querySelector('.bridge-top');
   var arrows=document.querySelectorAll('.bridge-arrow');
   var heads=document.querySelectorAll('.bridge-arrow-head');
