@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/zenos/Downloads/about.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Beagle Rehoming Japan</title>
+<link href="./About _ Beagle Rehoming Japan=49_files/css2" rel="stylesheet">
+<style>
+:root{
+  --white:#FDFAF6;--cream:#F5EFE6;--brown-light:#C4956A;--brown:#8B5E3C;
+  --brown-dark:#5C3D1E;--black:#1A1008;--gray:#6B6058;--gray-light:#D9CFC4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);}
+.lang-toggle{display:flex;border:1.5px solid var(--brown);border-radius:4px;overflow:hidden;background:var(--white);flex-shrink:0;}
+.lang-toggle button{padding:.32rem .75rem;border:none;background:transparent;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--brown);}
+.lang-toggle button.active{background:var(--brown);color:var(--white);}
+.ja{display:block;}.en{display:none;}
+body.lang-en .ja{display:none;}body.lang-en .en{display:block;}
+span.ja{display:inline;}span.en{display:none;}
+body.lang-en span.ja{display:none;}body.lang-en span.en{display:inline;}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(253,250,246,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-light);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;gap:.5rem;}
+.nav-logo img{height:36px;width:auto;}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--gray);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--brown);}
+
+/* HERO */
+.page-hero{background:var(--black);padding:7rem 5rem 5rem;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(92,61,30,.3) 0%,transparent 60%);pointer-events:none;}
+.page-hero-inner{position:relative;z-index:1;max-width:680px;}
+.page-hero-tag{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-light);border:1px solid rgba(196,149,106,.4);padding:.25rem .8rem;border-radius:2px;display:inline-block;margin-bottom:1rem;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);line-height:1.2;margin-bottom:.8rem;}
+.page-hero h1 em{font-style:italic;color:var(--brown-light);}
+.page-hero p{font-size:.95rem;line-height:1.88;color:rgba(255,255,255,.6);max-width:580px;}
+
+/* SHARED */
+.section-label{font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brown);margin-bottom:.5rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--brown-dark);margin-bottom:.8rem;line-height:1.25;}
+.section-title em{font-style:italic;}
+.divider{width:38px;height:3px;background:var(--brown-light);border-radius:2px;margin:1rem 0 1.8rem;}
+
+/* MISSION / VISION */
+.mv-section{padding:5rem 5rem;background:var(--white);}
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;}
+.mv-card{border-radius:12px;padding:2.4rem 2.6rem;}
+.mv-card.mission{background:var(--black);border-top:3px solid var(--brown-light);}
+.mv-card.vision{background:var(--brown-dark);border-top:3px solid var(--brown-light);}
+.mv-card-label{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brown-light);margin-bottom:1rem;}
+.mv-card-text{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);line-height:1.7;font-style:italic;}
+
+/* ABOUT */
+.about-section{padding:5rem 5rem;background:var(--cream);position:relative;overflow:hidden;}
+.about-section::after{content:'';position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:420px;height:420px;background:url("images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png") center/contain no-repeat;opacity:.08;pointer-events:none;}
+.about-body{font-size:.95rem;line-height:2;color:var(--gray);max-width:700px;}
+.about-body p{margin-bottom:1.2rem;}
+.about-body p:last-child{margin-bottom:0;}
+
+/* FOUNDER */
+.founder-section{padding:5rem 5rem;background:var(--white);}
+.founder-card{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:start;max-width:800px;}
+.founder-avatar{width:80px;height:80px;border-radius:50%;background:var(--brown-dark);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;border:3px solid var(--brown-light);}
+.founder-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--brown-dark);margin-bottom:.3rem;}
+.founder-title{font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--brown-light);text-transform:uppercase;margin-bottom:1.2rem;}
+.founder-bio{font-size:.9rem;line-height:1.95;color:var(--gray);}
+.founder-bio p{margin-bottom:1rem;}
+.founder-bio p:last-child{margin-bottom:0;}
+.founder-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem;}
+.founder-tag{font-size:.68rem;font-weight:700;padding:.22rem .7rem;background:rgba(139,94,60,.08);border:1px solid rgba(139,94,60,.2);border-radius:10px;color:var(--brown);}
+
+/* FAQ SECTION */
+.faq-section{padding:5rem 5rem;background:var(--cream);}
+.faq-list{max-width:780px;margin-top:2rem;display:flex;flex-direction:column;gap:.75rem;}
+.faq-item{border-radius:10px;background:var(--white);border:1px solid var(--gray-light);overflow:hidden;transition:box-shadow .2s;}
+.faq-item:hover{box-shadow:0 4px 18px rgba(92,61,30,.08);}
+.faq-item.open{border-color:rgba(196,149,106,.5);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.5rem 1.8rem;cursor:pointer;user-select:none;}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown-dark);line-height:1.45;font-weight:700;}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:rgba(196,149,106,.12);border:1.5px solid var(--brown-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s;}
+.faq-icon svg{transition:transform .25s;}
+.faq-item.open .faq-icon{background:var(--brown-light);}
+.faq-item.open .faq-icon svg{transform:rotate(45deg);}
+.faq-item.open .faq-icon svg path{stroke:var(--white);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:600px;}
+.faq-a-inner{padding:0 1.8rem 1.6rem;font-size:.9rem;line-height:1.95;color:var(--gray);border-top:1px solid var(--gray-light);}
+.faq-a-inner p{margin-bottom:.9rem;padding-top:1.2rem;}
+.faq-a-inner p:last-child{margin-bottom:0;}
+.faq-stance{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brown);background:rgba(139,94,60,.08);border:1px solid rgba(139,94,60,.2);border-radius:3px;padding:.2rem .65rem;margin-bottom:.8rem;}
+
+/* CTA */
+.about-cta{padding:4.5rem 5rem;background:var(--brown-dark);text-align:center;}
+.about-cta-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2rem);color:var(--white);line-height:1.3;margin-bottom:1rem;}
+.about-cta-title em{font-style:italic;color:var(--brown-light);}
+.about-cta-sub{font-size:.9rem;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 2rem;line-height:1.78;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{padding:.85rem 2rem;background:var(--brown-light);color:var(--white);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+.btn-primary:hover{background:#d4a56a;transform:translateY(-2px);}
+.btn-outline{padding:.85rem 2rem;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+.btn-outline:hover{border-color:var(--white);color:var(--white);}
+
+/* FOOTER */
+footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.72rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);font-weight:700;}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;margin-left:1.5rem;transition:color .2s;}
+.footer-links a:hover{color:var(--brown-light);}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px 4px;background:none;border:none;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+@media(max-width:1280px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
+  nav{padding:.9rem 1.2rem;}
+  .page-hero{padding:5.5rem 1.8rem 4rem;}
+  .mv-section,.about-section,.founder-section,.faq-section,.about-cta{padding:3.5rem 1.8rem;}
+  .mv-grid{grid-template-columns:1fr;}
+  .founder-card{grid-template-columns:1fr;gap:1.5rem;}
+  footer{flex-direction:column;text-align:center;padding:1.8rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="file:///C:/Users/zenos/Downloads/index.html" class="nav-logo">
+    <img src="file:///C:/Users/zenos/Downloads/images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan">
+    <span class="nav-logo-text">Beagle Rehoming Japan</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="file:///C:/Users/zenos/Downloads/index.html"><span class="ja">TOP</span><span class="en">TOP</span></a></li>
+    <li><a href="file:///C:/Users/zenos/Downloads/issues.html"><span class="ja">課題と意義</span><span class="en">Issues &amp; Mission</span></a></li>
+    <li><a href="file:///C:/Users/zenos/Downloads/about.html" class="active"><span class="ja">団体について</span><span class="en">About</span></a></li>
+    <li><a href="file:///C:/Users/zenos/Downloads/adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a></li>
+    <li><a href="file:///C:/Users/zenos/Downloads/news.html"><span class="ja">ニュース</span><span class="en">News</span></a></li>
+    <li><a href="file:///C:/Users/zenos/Downloads/contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a></li>
+    <li><a href="file:///C:/Users/zenos/Downloads/about.html#" class="btn-donate"><span class="ja">寄付（準備中）</span><span class="en">Donate (Coming Soon)</span></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button id="btn-ja" class="active" onclick="setLang(&#39;ja&#39;)">JA</button>
+    <button id="btn-en" onclick="setLang(&#39;en&#39;)">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-tag"><span class="ja">団体紹介</span><span class="en">About Us</span></div>
+    <h1>
+      <span class="ja">ビーグルと人を<em>つなぐ団体</em></span>
+      <span class="en">Connecting beagles <em>with people</em></span>
+    </h1>
+    <p>
+      <span class="ja">実験動物としての役割を終えたビーグルに、新たな生活の機会を提供します。科学と動物福祉の両立を目指して。</span>
+      <span class="en">Providing new opportunities for beagles whose role in research has ended — working toward a society where science and animal welfare coexist.</span>
+    </p>
+  </div>
+</div>
+
+<!-- MISSION / VISION -->
+<section class="mv-section">
+  <div class="section-label"><span class="ja">私たちの理念</span><span class="en">Our Purpose</span></div>
+  <h2 class="section-title"><span class="ja">Mission &amp; <em>Vision</em></span><span class="en">Mission &amp; <em>Vision</em></span></h2>
+  <div class="divider"></div>
+  <div class="mv-grid">
+    <div class="mv-card mission">
+      <div class="mv-card-label">Mission</div>
+      <p class="mv-card-text">
+        <span class="ja">実験動物としての役割を終えた犬たちに、新たな生活の機会を提供する</span>
+        <span class="en">To provide new opportunities in life for dogs whose role as laboratory animals has ended</span>
+      </p>
+    </div>
+    <div class="mv-card vision">
+      <div class="mv-card-label">Vision</div>
+      <p class="mv-card-text">
+        <span class="ja">科学の発展と動物福祉が両立し、実験動物が役割を終えた後も尊重される社会を実現する</span>
+        <span class="en">A society where scientific progress and animal welfare coexist — where laboratory animals are respected even after their role has ended</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="section-label"><span class="ja">団体について</span><span class="en">About the Organization</span></div>
+  <h2 class="section-title"><span class="ja">Beagle Rehoming <em>Japan</em></span><span class="en">Beagle Rehoming <em>Japan</em></span></h2>
+  <div class="divider"></div>
+  <div class="about-body">
+    <span class="ja">
+      <p>Beagle Rehoming Japanは、実験動物としての役割を終えたビーグル犬に新たな生活の機会を提供することを目的とした団体です。</p>
+      <p>日本では現在も多くの犬が創薬・医療研究に使用されていますが、その後の受け入れ体制は十分に整備されているとは言えません。</p>
+      <p>私たちは、研究機関・企業・獣医師・市民をつなぐことで、実験動物のリホーミングを現実的な選択肢として社会に根付かせることを目指しています。</p>
+      <p>また、科学的背景に基づいた情報発信を通じて、動物実験と動物福祉の両立についての理解促進にも取り組んでいます。</p>
+    </span>
+    <span class="en">
+      <p>Beagle Rehoming Japan is an organization dedicated to providing new opportunities in life for beagles whose role as laboratory animals has ended.</p>
+      <p>In Japan, many dogs continue to be used in pharmaceutical and medical research, yet the infrastructure for receiving and rehoming them afterward remains insufficient.</p>
+      <p>By connecting research institutions, companies, veterinarians, and citizens, we aim to establish rehoming as a realistic and recognized option within society.</p>
+      <p>We also work to promote understanding of the coexistence of animal research and animal welfare through science-based information and outreach.</p>
+    </span>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section">
+  <div class="section-label"><span class="ja">代表紹介</span><span class="en">Founder</span></div>
+  <h2 class="section-title"><span class="ja">代表者より</span><span class="en">From the <em>Founder</em></span></h2>
+  <div class="divider"></div>
+  <div class="founder-card">
+    <div class="founder-avatar">🐾</div>
+    <div>
+      <div class="founder-name"><span class="ja">代表</span><span class="en">Founder</span></div>
+      <div class="founder-title">Beagle Rehoming Japan</div>
+      <div class="founder-bio">
+        <span class="ja">
+          <p>ライフサイエンス分野のPhDとして創薬研究に従事し、新規モダリティ（NAMS: New Approach Methodologies）の開発に取り組んできました。</p>
+          <p>動物実験の代替・削減に資する技術開発に関わる一方で、現時点においても動物実験が果たしている重要な役割と、その後の動物たちの行き場という課題の両方に向き合ってきました。</p>
+          <p>現在、ビーグルを2頭引き取り飼育しており、彼らが家庭の中で穏やかに暮らし、人と深い関係性を築ける存在であることを日々実感しています。</p>
+          <p>この経験と科学的視点の両方から、実験動物のリホーミングという選択肢を社会に広げる必要性を強く感じ、Beagle Rehoming Japanの活動を開始しました。</p>
+        </span>
+        <span class="en">
+          <p>As a PhD in the life sciences, I have worked in drug discovery research and contributed to the development of New Approach Methodologies (NAMS).</p>
+          <p>Through my involvement in technologies aimed at replacing and reducing animal use, I have faced both the important role that animal research continues to play today, and the challenge of what happens to these animals afterward.</p>
+          <p>I currently care for two beagles I have adopted, and witness daily how they can live peacefully in a home and build deep bonds with people.</p>
+          <p>Drawing from both this personal experience and my scientific perspective, I felt strongly that society needed more pathways for rehoming laboratory animals — and so I founded Beagle Rehoming Japan.</p>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-label"><span class="ja">よくある質問</span><span class="en">FAQ</span></div>
+  <h2 class="section-title"><span class="ja">団体について、<em>よくある疑問</em></span><span class="en">Common Questions <em>About Us</em></span></h2>
+  <div class="divider"></div>
+
+  <div class="faq-list">
+
+    <!-- Q1 -->
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <div class="faq-q-text">
+          <span class="ja">動物実験に賛成している団体ですか？</span>
+          <span class="en">Does your organization support animal experimentation?</span>
+        </div>
+        <div class="faq-icon">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 1V11M1 6H11" stroke="#8B5E3C" stroke-width="1.8" stroke-linecap="round" path=""></path>
+          </svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <span class="ja">
+            <p>私たちは、動物実験の賛否をいずれかの立場で主張する団体ではありません。</p>
+            <p>ただし、代表自身がライフサイエンス分野の研究者として、動物実験に代わる技術（NAMs）の開発に関わってきた立場から、将来的には動物実験のない社会の実現につながると信じて活動しています。</p>
+            <p>現時点での優先事項は、役割を終えたビーグルたちが確実に次の生活へと移れるよう、研究機関との信頼関係を築き、1匹でも多くのリホーミングを実現することです。そのために研究機関との連携を大切にしています。この点についてご理解いただけますと幸いです。</p>
+          </span>
+          <span class="en">
+            <p>We are not an organization that advocates for or against animal experimentation.</p>
+            <p>However, our founder — as a researcher involved in developing alternatives to animal testing (NAMs) — believes that this work ultimately contributes to a future where animal experimentation is no longer necessary.</p>
+            <p>Our immediate priority is to build trust with research institutions and ensure that as many beagles as possible can transition to new lives after their role in research ends. This is why we work collaboratively with research institutions, and we ask for your understanding on this point.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <div class="faq-q-text">
+          <span class="ja">研究機関とはどのように連携しているのですか？</span>
+          <span class="en">How do you work with research institutions?</span>
+        </div>
+        <div class="faq-icon">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 1V11M1 6H11" stroke="#8B5E3C" stroke-width="1.8" stroke-linecap="round" path=""></path>
+          </svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <span class="ja">
+            <p>私たちの連携活動は、大きく4つの柱で構成されています。</p>
+            <p>①<strong>引き取りルートの構築</strong>：研究機関・製薬企業からビーグルを安全かつ適切に引き取るための仕組みを整備しています。リホーミングの費用や手続きの負担を軽減し、企業が参加しやすい環境づくりを目指しています。</p>
+            <p>②<strong>ネットワークの形成</strong>：里親候補・獣医師・研究者・行政をつなぐネットワークを構築し、リホーミングが継続的・組織的に行われる仕組みを整えます。</p>
+            <p>③<strong>啓発・情報発信</strong>：動物実験の科学的背景や妥当性について正確な情報を発信しながら、リホーミングという選択肢を社会に広めていきます。</p>
+            <p>④<strong>行政・認証機関との連携</strong>：規制当局や認証機関と協力することで、企業がリホーミングに取り組みやすい制度的環境の整備にも働きかけています。</p>
+          </span>
+          <span class="en">
+            <p>Our collaborative activities are built on four pillars.</p>
+            <p>① <strong>Building rehoming pathways</strong>: We develop systems to safely and appropriately receive beagles from research institutions and pharmaceutical companies, reducing the financial and procedural burden on those companies.</p>
+            <p>② <strong>Network development</strong>: We connect prospective adopters, veterinarians, researchers, and government bodies to create a sustainable, organized rehoming infrastructure.</p>
+            <p>③ <strong>Outreach and education</strong>: We share accurate, science-based information about animal research while raising awareness of rehoming as a viable option in society.</p>
+            <p>④ <strong>Working with regulators</strong>: By engaging with regulatory and certification bodies, we aim to help build an institutional environment that makes it easier for companies to participate in rehoming.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">
+        <div class="faq-q-text">
+          <span class="ja">寄付・支援はどのように使われますか？</span>
+          <span class="en">How are donations and support used?</span>
+        </div>
+        <div class="faq-icon">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 1V11M1 6H11" stroke="#8B5E3C" stroke-width="1.8" stroke-linecap="round" path=""></path>
+          </svg>
+        </div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          <span class="ja">
+            <p>いただいたご支援は、以下の活動に充てられます。</p>
+            <p>①<strong>引き渡し前のサポート費用</strong>：現時点では、研究機関・企業の皆様に輸送および獣医学的健康診断をご協力いただいています。いただいたご支援は、この過程で発生する費用の一部補助に充てられます。</p>
+            <p>②<strong>引き渡し後のサポート</strong>：里親の皆様には、引き渡し後に動物病院でのワクチン接種や去勢・避妊手術をご負担いただいています。ご支援は、特に費用面での負担が大きい里親候補の方へのサポートや、緊急の医療ケアが必要なケースへの対応に使用します。</p>
+            <p>③<strong>情報発信・広報活動</strong>：ウェブサイトの運営、SNS発信、啓発コンテンツの制作などに充てられます。</p>
+            <p>④<strong>ネットワーク構築・運営</strong>：研究機関・里親・獣医師・行政をつなぐ活動の運営費です。</p>
+            <p>そして将来的な目標として、継続的な支援のもとでリホーミングの規模が拡大した際には、<strong>専用の飼育施設の運営</strong>を目指しています。獣医学的ケアやトレーニング、里親候補との面会ができる環境を整えることで、より多くのビーグルに安心できる移行期間を提供したいと考えています。</p>
+          </span>
+          <span class="en">
+            <p>Your support is directed toward the following activities.</p>
+            <p>① <strong>Pre-transfer support</strong>: At present, research institutions and companies kindly handle transportation and veterinary health checks. Donations help partially offset the costs involved in this process.</p>
+            <p>② <strong>Post-transfer support</strong>: Adoptive families take on the responsibility of vaccinations and spay/neuter procedures at their local vet after the beagle is placed. Donations support families who may face financial difficulty with these costs, as well as cases requiring urgent medical care.</p>
+            <p>③ <strong>Outreach and communications</strong>: Website operations, social media, and the creation of educational content.</p>
+            <p>④ <strong>Network operations</strong>: Running the connections between research institutions, adopters, vets, and government bodies.</p>
+            <p>Looking further ahead, as sustained support grows and our rehoming capacity expands, we aim to operate a <strong>dedicated care facility</strong> — a space where beagles can receive veterinary care, behavioral training, and meet prospective adopters in a calm, supportive environment.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <h2 class="about-cta-title">
+    <span class="ja">一緒に、<em>変化をつくりましょう。</em></span>
+    <span class="en">Let's create <em>change together.</em></span>
+  </h2>
+  <p class="about-cta-sub">
+    <span class="ja">里親として、支援者として、または研究者・行政の立場として。あなたの関わり方で、一緒に取り組めることがあります。</span>
+    <span class="en">As an adopter, a supporter, or from a research or regulatory perspective — there are ways to get involved that fit your role.</span>
+  </p>
+  <div class="cta-buttons">
+    <a href="file:///C:/Users/zenos/Downloads/adopt.html" class="btn-primary"><span class="ja">里親募集を見る</span><span class="en">View Adoptions</span></a>
+    <a href="file:///C:/Users/zenos/Downloads/contact.html" class="btn-outline"><span class="ja">お問い合わせ</span><span class="en">Contact Us</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Beagle Rehoming Japan</div>
+  <div class="footer-links">
+    <a href="file:///C:/Users/zenos/Downloads/index.html"><span class="ja">ホーム</span><span class="en">Home</span></a>
+    <a href="file:///C:/Users/zenos/Downloads/issues.html"><span class="ja">課題と意義</span><span class="en">Issues</span></a>
+    <a href="file:///C:/Users/zenos/Downloads/adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a>
+    <a href="file:///C:/Users/zenos/Downloads/contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+  </div>
+  <div>© 2025 Beagle Rehoming Japan</div>
+</footer>
+
+<script>
+function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);}
+function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEach(function(a){var h=a.getAttribute('href');if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');});}
+(function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
+function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
+function toggleFaq(item){var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});if(!isOpen){item.classList.add('open');}}
+</script>
+
+
+</body></html>
