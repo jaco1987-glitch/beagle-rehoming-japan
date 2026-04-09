@@ -27,6 +27,7 @@ body.lang-en span.ja{display:none;}body.lang-en span.en{display:inline;}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(253,250,246,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-light);transition:box-shadow .3s;}
 nav.scrolled{box-shadow:0 2px 20px rgba(90,50,20,.1);}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);}
 .nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
 .nav-links{display:flex;gap:1.6rem;list-style:none;}
 .nav-links a{text-decoration:none;color:var(--gray);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;position:relative;}
@@ -50,7 +51,7 @@ section{padding:5rem 5rem;}
 .btn-outline{padding:.82rem 1.9rem;border:1.5px solid var(--brown);color:var(--brown-dark);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
 .btn-outline:hover{background:var(--brown);color:var(--white);transform:translateY(-2px);}
 
-/* ── 1. HERO ── */
+/* ââ 1. HERO ââ */
 #hero{min-height:100vh;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--black);padding:0;}
 .hero-slides{position:absolute;inset:0;z-index:1;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
@@ -76,7 +77,7 @@ section{padding:5rem 5rem;}
 .hero-badge .num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;line-height:1;}
 .hero-badge .lbl{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;}
 
-/* ── 2. ISSUES & IMPACT ── */
+/* ââ 2. ISSUES & IMPACT ââ */
 #home-issues{background:var(--cream);padding:4.5rem 5rem;}
 .hi-pair-main{display:grid;grid-template-columns:1fr 72px 1fr;align-items:stretch;gap:0;margin:2.5rem 0 2rem;}
 .hi-main-card{border-radius:10px;padding:2.4rem 2.6rem;position:relative;overflow:hidden;}
@@ -96,7 +97,7 @@ section{padding:5rem 5rem;}
 .hi-learn-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:700;color:var(--brown);text-decoration:none;border-bottom:1.5px solid var(--brown-light);padding-bottom:.15rem;letter-spacing:.04em;transition:gap .2s,color .2s;}
 .hi-learn-link:hover{gap:.75rem;color:var(--brown-dark);}
 
-/* ── 3. ROADMAP ── */
+/* ââ 3. ROADMAP ââ */
 #home-roadmap{background:var(--black);padding:5rem 5rem;}
 #home-roadmap .section-label{color:var(--brown-light);}
 #home-roadmap .section-title{color:var(--white);}
@@ -142,7 +143,7 @@ section{padding:5rem 5rem;}
 .donation-legend-desc{font-size:.68rem;color:rgba(255,255,255,.4);line-height:1.55;margin-top:.1rem;}
 .donation-note{font-size:.85rem;color:rgba(255,255,255,.28);font-style:italic;margin-top:.9rem;border-top:1px solid rgba(255,255,255,.05);padding-top:.65rem;}
 
-/* ── 4. OUR WORK ── */
+/* ââ 4. OUR WORK ââ */
 #home-work{background:var(--white);padding:5rem 5rem;}
 .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2.5rem 0 2rem;}
 .work-card{background:var(--cream);border-radius:10px;padding:2rem;border-top:3px solid var(--brown-light);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;gap:.6rem;}
@@ -165,9 +166,9 @@ section{padding:5rem 5rem;}
 .work-phase-next-link{flex-shrink:0;font-size:.8rem;font-weight:700;color:var(--brown-light);text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(196,149,106,.4);padding-bottom:.1rem;transition:color .2s;}
 .work-phase-next-link:hover{color:var(--white);}
 
-/* ── 5. FINAL CTA ── */
+/* ââ 5. FINAL CTA ââ */
 #home-cta{background:var(--brown-dark);padding:5rem 5rem;text-align:center;position:relative;overflow:hidden;}
-#home-cta::before{content:'🐾';position:absolute;font-size:18rem;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+#home-cta::before{content:'ð¾';position:absolute;font-size:18rem;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
 .cta-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brown-light);margin-bottom:1rem;}
 .cta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);line-height:1.25;margin-bottom:.8rem;}
 .cta-title em{font-style:italic;color:var(--brown-light);}
@@ -222,17 +223,17 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
 
 <!-- NAV -->
 <nav id="navbar">
-  <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" aria-label="ã¡ãã¥ã¼" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
-  <a href="#hero" class="nav-logo"><img src="images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan" style="height:36px;width:auto;vertical-align:middle;"><span style="margin-left:.5rem;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);">Beagle Rehoming Japan</span></a>
+  <a href="#hero" class="nav-logo"><img src="images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan" style="height:36px;width:auto;"><span class="nav-logo-text">Beagle Rehoming Japan</span></a>
   <ul class="nav-links">
-    <li><a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues &amp; Mission</span></a></li>
-    <li><a href="about.html"><span class="ja">団体について</span><span class="en">About</span></a></li>
-    <li><a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a></li>
-    <li><a href="news.html"><span class="ja">ニュース</span><span class="en">News</span></a></li>
-    <li><a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a></li>
-    <li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span><span class="en">Donate (Coming Soon)</span></a></li>
+    <li><a href="issues.html"><span class="ja">èª²é¡ã¨æç¾©</span><span class="en">Issues &amp; Mission</span></a></li>
+    <li><a href="about.html"><span class="ja">å£ä½ã«ã¤ãã¦</span><span class="en">About</span></a></li>
+    <li><a href="adopt.html"><span class="ja">éè¦ªåé</span><span class="en">Adopt</span></a></li>
+    <li><a href="news.html"><span class="ja">ãã¥ã¼ã¹</span><span class="en">News</span></a></li>
+    <li><a href="contact.html"><span class="ja">ãåãåãã</span><span class="en">Contact</span></a></li>
+    <li><a href="#" class="btn-donate"><span class="ja">å¯ä»ï¼æºåä¸­ï¼</span><span class="en">Donate (Coming Soon)</span></a></li>
   </ul>
   <div class="lang-toggle">
     <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>
@@ -251,31 +252,31 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
     </div>
   <div class="hero-content">
     <div class="hero-tag">
-      <span class="ja">研究ビーグルの里親募集 · 日本全国</span>
-      <span class="en">Research Beagle Rehoming · Japan</span>
+      <span class="ja">ç ç©¶ãã¼ã°ã«ã®éè¦ªåé Â· æ¥æ¬å¨å½</span>
+      <span class="en">Research Beagle Rehoming Â· Japan</span>
     </div>
     <h1 class="hero-title">
-      <span class="ja">ビーグルたちに、<em>新しい未来を。</em>
+      <span class="ja">ãã¼ã°ã«ãã¡ã«ã<em>æ°ããæªæ¥ãã</em>
         <span class="hero-en-sub">A new future for former laboratory beagles.</span>
       </span>
       <span class="en">A new future for <em>former laboratory beagles.</em>
       </span>
     </h1>
     <p class="hero-sub" id="hero-sub-available">
-      <span class="ja">多くの実験動物は、その役割を終えた後の行き場が十分に確保されていません。私たちはリホーミング(新しい家庭へつなぐ取り組み)を通じて、その命が"その先"へ進めるよう支えます。</span>
+      <span class="ja">å¤ãã®å®é¨åç©ã¯ããã®å½¹å²ãçµããå¾ã®è¡ãå ´ãååã«ç¢ºä¿ããã¦ãã¾ãããç§ãã¡ã¯ãªãã¼ãã³ã°(æ°ããå®¶åº­ã¸ã¤ãªãåãçµã¿)ãéãã¦ããã®å½ã"ãã®å"ã¸é²ããããæ¯ãã¾ãã</span>
       <span class="en">Many laboratory animals lack clear pathways after their role in research ends. Through rehoming (placing animals into new homes), we help them move forward to life beyond research.</span>
     </p>
     <p class="hero-sub" id="hero-sub-unavailable" style="display:none;">
-      <span class="ja">多くの実験動物は、その役割を終えた後の行き場が十分に確保されていません。私たちはリホーミング(新しい家庭へつなぐ取り組み)を通じて、その命が"その先"へ進めるよう支えます。</span>
+      <span class="ja">å¤ãã®å®é¨åç©ã¯ããã®å½¹å²ãçµããå¾ã®è¡ãå ´ãååã«ç¢ºä¿ããã¦ãã¾ãããç§ãã¡ã¯ãªãã¼ãã³ã°(æ°ããå®¶åº­ã¸ã¤ãªãåãçµã¿)ãéãã¦ããã®å½ã"ãã®å"ã¸é²ããããæ¯ãã¾ãã</span>
       <span class="en">Many laboratory animals lack clear pathways after their role in research ends. Through rehoming (placing animals into new homes), we help them move forward to life beyond research.</span>
     </p>
     <div class="hero-cta" id="hero-cta-available">
-      <a href="adopt.html" class="btn-primary"><span class="ja">里親になる</span><span class="en">Adopt</span></a>
-      <a href="#home-cta" class="btn-outline hero-btn-donate"><span class="ja">支援する（準備中）</span><span class="en">Donate</span></a>
+      <a href="adopt.html" class="btn-primary"><span class="ja">éè¦ªã«ãªã</span><span class="en">Adopt</span></a>
+      <a href="#home-cta" class="btn-outline hero-btn-donate"><span class="ja">æ¯æ´ããï¼æºåä¸­ï¼</span><span class="en">Donate</span></a>
     </div>
     <div class="hero-cta" id="hero-cta-unavailable" style="display:none;">
-      <a href="#home-issues" class="btn-primary"><span class="ja">活動を知る</span><span class="en">Learn More</span></a>
-      <a href="#home-cta" class="btn-outline hero-btn-donate"><span class="ja">支援する（準備中）</span><span class="en">Donate</span></a>
+      <a href="#home-issues" class="btn-primary"><span class="ja">æ´»åãç¥ã</span><span class="en">Learn More</span></a>
+      <a href="#home-cta" class="btn-outline hero-btn-donate"><span class="ja">æ¯æ´ããï¼æºåä¸­ï¼</span><span class="en">Donate</span></a>
     </div>
   </div>
   
@@ -289,37 +290,37 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
     </div>
   <div class="hero-badge">
     <div class="num">39</div>
-    <div class="lbl"><span class="ja">累計保護頭数</span><span class="en">Total Rehomed</span></div>
+    <div class="lbl"><span class="ja">ç´¯è¨ä¿è­·é ­æ°</span><span class="en">Total Rehomed</span></div>
   </div>
 </section>
 
 <!-- ===== 2. ISSUES & IMPACT ===== -->
 <section id="home-issues" class="reveal">
-  <div class="section-label"><span class="ja">課題とインパクト</span><span class="en">Issues &amp; Impact</span></div>
-  <h2 class="section-title"><span class="ja">動物実験の、<em>その先へ。</em></span><span class="en">Beyond <em>the lab.</em></span></h2>
+  <div class="section-label"><span class="ja">èª²é¡ã¨ã¤ã³ãã¯ã</span><span class="en">Issues &amp; Impact</span></div>
+  <h2 class="section-title"><span class="ja">åç©å®é¨ã®ã<em>ãã®åã¸ã</em></span><span class="en">Beyond <em>the lab.</em></span></h2>
   <div class="divider"></div>
   <div class="hi-pair-main">
     <div class="hi-main-card issue reveal">
       <div class="hi-main-tag">Issue</div>
       <div class="hi-main-head">
-        <span class="ja">日本では年間約3,000頭のビーグルが研究に使用されています。創薬・医療の発展において動物実験はいまも重要な役割を担っていますが、その役割を終えた後の行き場は、十分に整備されていません。</span>
+        <span class="ja">æ¥æ¬ã§ã¯å¹´éç´3,000é ­ã®ãã¼ã°ã«ãç ç©¶ã«ä½¿ç¨ããã¦ãã¾ããåµè¬ã»å»çã®çºå±ã«ããã¦åç©å®é¨ã¯ãã¾ãéè¦ãªå½¹å²ãæã£ã¦ãã¾ããããã®å½¹å²ãçµããå¾ã®è¡ãå ´ã¯ãååã«æ´åããã¦ãã¾ããã</span>
         <span class="en">In Japan, approximately 3,000 beagles are used in research each year. While animal research continues to play a vital role in medicine and science, clear pathways for these animals after their role ends remain largely absent.</span>
       </div>
     </div>
-    <div class="hi-center-arrow">→</div>
+    <div class="hi-center-arrow">â</div>
     <div class="hi-main-card impact reveal">
       <div class="hi-main-tag">Impact</div>
       <div class="hi-main-head">
-        <span class="ja">私たちは、その行き場をつくります。<br>    実験動物に関わる企業・獣医師・研究機関、そして里親候補となる方々と連携し、命の"その先"を支えるネットワークをつくっています。<br>    役割を終えたビーグルが、次の家族のもとへ。その橋渡しが私たちの使命です。</span>
+        <span class="ja">ç§ãã¡ã¯ããã®è¡ãå ´ãã¤ããã¾ãã<br>    å®é¨åç©ã«é¢ããä¼æ¥­ã»ç£å»å¸«ã»ç ç©¶æ©é¢ãããã¦éè¦ªåè£ã¨ãªãæ¹ãã¨é£æºããå½ã®"ãã®å"ãæ¯ãããããã¯ã¼ã¯ãã¤ãã£ã¦ãã¾ãã<br>    å½¹å²ãçµãããã¼ã°ã«ããæ¬¡ã®å®¶æã®ãã¨ã¸ããã®æ©æ¸¡ããç§ãã¡ã®ä½¿å½ã§ãã</span>
         <span class="en">We support former research beagles in moving forward to a safe and loving life. By expanding rehoming as a social practice, we build a system where no beagle is left without a future.</span>
       </div>
     </div>
   </div>
   <div class="hi-learn-more">
     <a href="issues.html" class="hi-learn-link">
-      <span class="ja">課題と活動の意義をもっと知る</span>
+      <span class="ja">èª²é¡ã¨æ´»åã®æç¾©ããã£ã¨ç¥ã</span>
       <span class="en">Learn more about the issues &amp; our impact</span>
-      &nbsp;→
+      &nbsp;â
     </a>
   </div>
 </section>
@@ -328,44 +329,44 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
 <section id="home-roadmap" class="reveal">
   <div class="rm-now">
     <span class="rm-dot"></span>
-    NOW ACTIVE &nbsp;·&nbsp; <span class="ja">Phase 1 進行中</span><span class="en">Phase 1 Active</span>
+    NOW ACTIVE &nbsp;Â·&nbsp; <span class="ja">Phase 1 é²è¡ä¸­</span><span class="en">Phase 1 Active</span>
   </div>
-  <div class="section-label"><span class="ja">活動ロードマップ</span><span class="en">Our Roadmap</span></div>
-  <h2 class="section-title"><span class="ja">段階的に、<em>社会を変える</em></span><span class="en">Step by step, <em>changing society</em></span></h2>
+  <div class="section-label"><span class="ja">æ´»åã­ã¼ãããã</span><span class="en">Our Roadmap</span></div>
+  <h2 class="section-title"><span class="ja">æ®µéçã«ã<em>ç¤¾ä¼ãå¤ãã</em></span><span class="en">Step by step, <em>changing society</em></span></h2>
   <div class="divider"></div>
   <p class="section-body">
-    <span class="ja">私たちは3つのフェーズで活動を拡大し、ビーグルのリホーミングを社会の仕組みとして根付かせます。</span>
-    <span class="en">We expand in three phases — building toward a society where rehoming is the norm.</span>
+    <span class="ja">ç§ãã¡ã¯3ã¤ã®ãã§ã¼ãºã§æ´»åãæ¡å¤§ãããã¼ã°ã«ã®ãªãã¼ãã³ã°ãç¤¾ä¼ã®ä»çµã¿ã¨ãã¦æ ¹ä»ããã¾ãã</span>
+    <span class="en">We expand in three phases â building toward a society where rehoming is the norm.</span>
   </p>
   <div class="rm-phases">
     <div class="rm-phase current reveal">
-      <div class="rm-ptag">PHASE 1 · NOW</div>
-      <div class="rm-ptitle"><span class="ja">基盤づくり<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Foundation</span></span><span class="en">Foundation</span></div>
-      <div class="rm-psub"><span class="ja">小さく始め、確実に命をつなぐ</span><span class="en">Start small, save lives reliably</span></div>
-      <p class="rm-pdesc"><span class="ja">実験を終えたビーグルのリホーミングを開始し、持続可能な活動の基盤を構築します。</span><span class="en">Begin rehoming former laboratory beagles and build a sustainable foundation.</span></p>
+      <div class="rm-ptag">PHASE 1 Â· NOW</div>
+      <div class="rm-ptitle"><span class="ja">åºç¤ã¥ãã<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Foundation</span></span><span class="en">Foundation</span></div>
+      <div class="rm-psub"><span class="ja">å°ããå§ããç¢ºå®ã«å½ãã¤ãªã</span><span class="en">Start small, save lives reliably</span></div>
+      <p class="rm-pdesc"><span class="ja">å®é¨ãçµãããã¼ã°ã«ã®ãªãã¼ãã³ã°ãéå§ããæç¶å¯è½ãªæ´»åã®åºç¤ãæ§ç¯ãã¾ãã</span><span class="en">Begin rehoming former laboratory beagles and build a sustainable foundation.</span></p>
       <div class="rm-metric-row">
-        <div class="rm-metric-mini"><div class="val"><span class="ja">10頭以下</span><span class="en">≤10 dogs</span></div><div class="sub"><span class="ja">/ 年</span><span class="en">/ yr</span></div></div>
-        <div class="rm-metric-mini"><div class="val"><span class="ja">¥100万以下</span><span class="en">under $10,000</span></div><div class="sub"><span class="ja">年間目安</span><span class="en">annual est.</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">10é ­ä»¥ä¸</span><span class="en">â¤10 dogs</span></div><div class="sub"><span class="ja">/ å¹´</span><span class="en">/ yr</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">Â¥100ä¸ä»¥ä¸</span><span class="en">under $10,000</span></div><div class="sub"><span class="ja">å¹´éç®å®</span><span class="en">annual est.</span></div></div>
       </div>
     </div>
     <div class="rm-phase reveal">
       <div class="rm-ptag">PHASE 2</div>
-      <div class="rm-ptitle"><span class="ja">輪を広げる<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Scale</span></span><span class="en">Scale</span></div>
-      <div class="rm-psub"><span class="ja">支援の輪を広げ、より多くの命へ</span><span class="en">Expand support, reach more lives</span></div>
-      <p class="rm-pdesc"><span class="ja">規模とネットワークを拡大し、より多くのビーグルを支援できる体制を構築します。</span><span class="en">Scale operations and expand network to support more beagles.</span></p>
+      <div class="rm-ptitle"><span class="ja">è¼ªãåºãã<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Scale</span></span><span class="en">Scale</span></div>
+      <div class="rm-psub"><span class="ja">æ¯æ´ã®è¼ªãåºããããå¤ãã®å½ã¸</span><span class="en">Expand support, reach more lives</span></div>
+      <p class="rm-pdesc"><span class="ja">è¦æ¨¡ã¨ãããã¯ã¼ã¯ãæ¡å¤§ããããå¤ãã®ãã¼ã°ã«ãæ¯æ´ã§ããä½å¶ãæ§ç¯ãã¾ãã</span><span class="en">Scale operations and expand network to support more beagles.</span></p>
       <div class="rm-metric-row">
-        <div class="rm-metric-mini"><div class="val"><span class="ja">10–20頭</span><span class="en">10–20</span></div><div class="sub"><span class="ja">/ 年</span><span class="en">/ yr</span></div></div>
-        <div class="rm-metric-mini"><div class="val"><span class="ja">¥100–300万</span><span class="en">$10,000–$30,000</span></div><div class="sub"><span class="ja">年間目安</span><span class="en">annual est.</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">10â20é ­</span><span class="en">10â20</span></div><div class="sub"><span class="ja">/ å¹´</span><span class="en">/ yr</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">Â¥100â300ä¸</span><span class="en">$10,000â$30,000</span></div><div class="sub"><span class="ja">å¹´éç®å®</span><span class="en">annual est.</span></div></div>
       </div>
     </div>
     <div class="rm-phase reveal">
       <div class="rm-ptag">PHASE 3</div>
-      <div class="rm-ptitle"><span class="ja">社会を変える<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Impact</span></span><span class="en">Impact</span></div>
-      <div class="rm-psub"><span class="ja">仕組みとして社会に根付かせる</span><span class="en">Embed rehoming into society</span></div>
-      <p class="rm-pdesc"><span class="ja">リホーミングを一時的な活動にとどめず、社会に定着する仕組みとして確立します。</span><span class="en">Establish rehoming as a sustainable system embedded in society.</span></p>
+      <div class="rm-ptitle"><span class="ja">ç¤¾ä¼ãå¤ãã<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Impact</span></span><span class="en">Impact</span></div>
+      <div class="rm-psub"><span class="ja">ä»çµã¿ã¨ãã¦ç¤¾ä¼ã«æ ¹ä»ããã</span><span class="en">Embed rehoming into society</span></div>
+      <p class="rm-pdesc"><span class="ja">ãªãã¼ãã³ã°ãä¸æçãªæ´»åã«ã¨ã©ãããç¤¾ä¼ã«å®çããä»çµã¿ã¨ãã¦ç¢ºç«ãã¾ãã</span><span class="en">Establish rehoming as a sustainable system embedded in society.</span></p>
       <div class="rm-metric-row">
-        <div class="rm-metric-mini"><div class="val"><span class="ja">20頭以上</span><span class="en">20+</span></div><div class="sub"><span class="ja">/ 年</span><span class="en">/ yr</span></div></div>
-        <div class="rm-metric-mini"><div class="val"><span class="ja">¥300万以上</span><span class="en">$30,000+</span></div><div class="sub"><span class="ja">年間目安</span><span class="en">annual est.</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">20é ­ä»¥ä¸</span><span class="en">20+</span></div><div class="sub"><span class="ja">/ å¹´</span><span class="en">/ yr</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">Â¥300ä¸ä»¥ä¸</span><span class="en">$30,000+</span></div><div class="sub"><span class="ja">å¹´éç®å®</span><span class="en">annual est.</span></div></div>
       </div>
     </div>
   </div>
@@ -375,7 +376,7 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
     <div class="donation-header">
       <span class="donation-phase-tag">Phase 1</span>
       <p class="donation-lead">
-        <span class="ja">現在の寄付金は、主に保護・譲渡活動の基盤づくりに活用されます。</span>
+        <span class="ja">ç¾å¨ã®å¯ä»éã¯ãä¸»ã«ä¿è­·ã»è­²æ¸¡æ´»åã®åºç¤ã¥ããã«æ´»ç¨ããã¾ãã</span>
         <span class="en">Donations currently support the foundation of our rescue and rehoming activities.</span>
       </p>
     </div>
@@ -390,27 +391,27 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
       <div class="donation-legend-item">
         <div class="donation-legend-dot transport"></div>
         <div>
-          <div><span class="donation-legend-name"><span class="ja">引き取り費用・輸送費</span><span class="en">Pickup &amp; Transport</span></span><span class="donation-legend-pct">80%</span></div>
-          <div class="donation-legend-desc"><span class="ja">研究機関からの引き取り・移動にかかる費用（約5〜10万円／匹）</span><span class="en">Pickup and transport from research facilities (approx. $500–$1,000/dog)</span></div>
+          <div><span class="donation-legend-name"><span class="ja">å¼ãåãè²»ç¨ã»è¼¸éè²»</span><span class="en">Pickup &amp; Transport</span></span><span class="donation-legend-pct">80%</span></div>
+          <div class="donation-legend-desc"><span class="ja">ç ç©¶æ©é¢ããã®å¼ãåãã»ç§»åã«ãããè²»ç¨ï¼ç´5ã10ä¸åï¼å¹ï¼</span><span class="en">Pickup and transport from research facilities (approx. $500â$1,000/dog)</span></div>
         </div>
       </div>
       <div class="donation-legend-item">
         <div class="donation-legend-dot network"></div>
         <div>
-          <div><span class="donation-legend-name"><span class="ja">里親ネットワーク</span><span class="en">Community &amp; Support</span></span><span class="donation-legend-pct">10%</span></div>
-          <div class="donation-legend-desc"><span class="ja">里親同士の交流・サポート・啓発イベントの開催</span><span class="en">Adopter support, events, and awareness activities</span></div>
+          <div><span class="donation-legend-name"><span class="ja">éè¦ªãããã¯ã¼ã¯</span><span class="en">Community &amp; Support</span></span><span class="donation-legend-pct">10%</span></div>
+          <div class="donation-legend-desc"><span class="ja">éè¦ªåå£«ã®äº¤æµã»ãµãã¼ãã»åçºã¤ãã³ãã®éå¬</span><span class="en">Adopter support, events, and awareness activities</span></div>
         </div>
       </div>
       <div class="donation-legend-item">
         <div class="donation-legend-dot ops"></div>
         <div>
-          <div><span class="donation-legend-name"><span class="ja">団体運営費</span><span class="en">Operations</span></span><span class="donation-legend-pct">10%</span></div>
-          <div class="donation-legend-desc"><span class="ja">最低限の運営・広報・システム維持費用</span><span class="en">Basic operational and communication costs</span></div>
+          <div><span class="donation-legend-name"><span class="ja">å£ä½éå¶è²»</span><span class="en">Operations</span></span><span class="donation-legend-pct">10%</span></div>
+          <div class="donation-legend-desc"><span class="ja">æä½éã®éå¶ã»åºå ±ã»ã·ã¹ãã ç¶­æè²»ç¨</span><span class="en">Basic operational and communication costs</span></div>
         </div>
       </div>
     </div>
     <div class="donation-note">
-      <span class="ja">※寄付金の使用割合は活動状況に応じて変動する場合があります。</span>
+      <span class="ja">â»å¯ä»éã®ä½¿ç¨å²åã¯æ´»åç¶æ³ã«å¿ãã¦å¤åããå ´åãããã¾ãã</span>
       <span class="en">Allocation may vary depending on operational needs.</span>
     </div>
   </div>
@@ -419,60 +420,60 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
 <!-- ===== 4. OUR WORK ===== -->
 <section id="home-work" class="reveal">
   <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;">
-    <div class="section-label" style="margin:0;"><span class="ja">私たちの活動</span><span class="en">What We Do</span></div>
+    <div class="section-label" style="margin:0;"><span class="ja">ç§ãã¡ã®æ´»å</span><span class="en">What We Do</span></div>
     <span class="work-phase-badge">Phase 1</span>
   </div>
-  <h2 class="section-title"><span class="ja">現在、<em>3つの活動</em>を中心に</span><span class="en">Three core <em>activities</em></span></h2>
+  <h2 class="section-title"><span class="ja">ç¾å¨ã<em>3ã¤ã®æ´»å</em>ãä¸­å¿ã«</span><span class="en">Three core <em>activities</em></span></h2>
   <div class="divider"></div>
   <p class="section-body">
-    <span class="ja">私たちは現在Phase 1として、実験を終えたビーグルたちが新しい生活へと進むために、3つの活動を中心に取り組んでいます。</span>
+    <span class="ja">ç§ãã¡ã¯ç¾å¨Phase 1ã¨ãã¦ãå®é¨ãçµãããã¼ã°ã«ãã¡ãæ°ããçæ´»ã¸ã¨é²ãããã«ã3ã¤ã®æ´»åãä¸­å¿ã«åãçµãã§ãã¾ãã</span>
     <span class="en">We are currently in Phase 1, focusing on three core activities to support beagles in transitioning to life beyond research.</span>
   </p>
   <div class="work-grid">
     <div class="work-card core reveal">
-      <div class="work-card-title"><span class="ja">里親マッチング</span><span class="en">Adoption Matching</span></div>
+      <div class="work-card-title"><span class="ja">éè¦ªãããã³ã°</span><span class="en">Adoption Matching</span></div>
       <div class="work-card-subtitle">Beagle Rehoming Program</div>
       <div class="work-card-title-en">Adoption Matching</div>
       <p class="work-card-body">
-        <span class="ja">保護されたビーグルたちと新しい家族をつなぐ活動です。それぞれの個性や生活環境に合わせたマッチングを行い、安心できる譲渡を目指します。</span>
+        <span class="ja">ä¿è­·ããããã¼ã°ã«ãã¡ã¨æ°ããå®¶æãã¤ãªãæ´»åã§ããããããã®åæ§ãçæ´»ç°å¢ã«åããããããã³ã°ãè¡ããå®å¿ã§ããè­²æ¸¡ãç®æãã¾ãã</span>
         <span class="en">We connect rescued beagles with suitable families, ensuring a safe and thoughtful transition into their new homes.</span>
       </p>
       <div class="work-card-cta">
         <a href="adopt.html" class="work-card-link" id="work-cta-adopt">
-          <span class="ja">里親募集を見る →</span><span class="en">View available beagles →</span>
+          <span class="ja">éè¦ªåéãè¦ã â</span><span class="en">View available beagles â</span>
         </a>
         <a href="stories.html" class="work-card-link" id="work-cta-stories" style="display:none;">
-          <span class="ja">これまでの保護事例を見る →</span><span class="en">Read our rehoming stories →</span>
+          <span class="ja">ããã¾ã§ã®ä¿è­·äºä¾ãè¦ã â</span><span class="en">Read our rehoming stories â</span>
         </a>
       </div>
     </div>
     <div class="work-card reveal">
-      <div class="work-card-title"><span class="ja">里親ネットワークの構築</span><span class="en">Community &amp; Support Network</span></div>
+      <div class="work-card-title"><span class="ja">éè¦ªãããã¯ã¼ã¯ã®æ§ç¯</span><span class="en">Community &amp; Support Network</span></div>
       <div class="work-card-subtitle">Ohana Network</div>
       <div class="work-card-title-en">Community &amp; Support Network</div>
       <p class="work-card-body">
-        <span class="ja">里親同士の交流や情報共有の場をつくり、継続的なサポートを行います。イベントや啓発活動を通じて、実験動物ビーグルへの理解を広げます。</span>
+        <span class="ja">éè¦ªåå£«ã®äº¤æµãæå ±å±æã®å ´ãã¤ãããç¶ç¶çãªãµãã¼ããè¡ãã¾ããã¤ãã³ããåçºæ´»åãéãã¦ãå®é¨åç©ãã¼ã°ã«ã¸ã®çè§£ãåºãã¾ãã</span>
         <span class="en">We build a network of adopters and supporters, providing ongoing guidance and opportunities to learn about laboratory beagles.</span>
       </p>
       <div class="work-card-cta">
         <a href="news.html" class="work-card-link">
-          <span class="ja">イベント・ニュースを見る →</span>
-          <span class="en">View events &amp; news →</span>
+          <span class="ja">ã¤ãã³ãã»ãã¥ã¼ã¹ãè¦ã â</span>
+          <span class="en">View events &amp; news â</span>
         </a>
       </div>
     </div>
     <div class="work-card reveal">
-      <div class="work-card-title"><span class="ja">啓発・広報活動</span><span class="en">Awareness &amp; Advocacy</span></div>
+      <div class="work-card-title"><span class="ja">åçºã»åºå ±æ´»å</span><span class="en">Awareness &amp; Advocacy</span></div>
       <div class="work-card-subtitle">Beyond Research</div>
       <div class="work-card-title-en">Awareness &amp; Advocacy</div>
       <p class="work-card-body">
-        <span class="ja">企業・研究機関・社会・行政に対してリホーミングの重要性を発信し、その理解と実践の広がりを目指します。</span>
+        <span class="ja">ä¼æ¥­ã»ç ç©¶æ©é¢ã»ç¤¾ä¼ã»è¡æ¿ã«å¯¾ãã¦ãªãã¼ãã³ã°ã®éè¦æ§ãçºä¿¡ãããã®çè§£ã¨å®è·µã®åºãããç®æãã¾ãã</span>
         <span class="en">We engage with companies, research institutions, and society to promote awareness and adoption of rehoming practices.</span>
       </p>
       <div class="work-card-cta">
         <a href="scientific.html" class="work-card-link">
-          <span class="ja">Scientific Discussion <span style="font-weight:400;font-size:.75rem;color:var(--gray);">（研究施設・IACUC・行政向け）</span> →</span>
-          <span class="en">Scientific Discussion <span style="font-weight:400;font-size:.75rem;color:var(--gray);">(for research facilities, IACUCs &amp; policymakers)</span> →</span>
+          <span class="ja">Scientific Discussion <span style="font-weight:400;font-size:.75rem;color:var(--gray);">ï¼ç ç©¶æ½è¨­ã»IACUCã»è¡æ¿åãï¼</span> â</span>
+          <span class="en">Scientific Discussion <span style="font-weight:400;font-size:.75rem;color:var(--gray);">(for research facilities, IACUCs &amp; policymakers)</span> â</span>
         </a>
       </div>
     </div>
@@ -481,12 +482,12 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
     <div class="work-phase-next-inner">
       <div class="work-phase-next-label">Phase 2 &amp; Beyond</div>
       <p class="work-phase-next-text">
-        <span class="ja">活動の拡大に伴い、<strong style="color:var(--brown-light);">実験動物の引き取りに特化した専用施設の運営</strong>・3Rs研究支援・国際連携など、より包括的な支援体制を目指します。</span>
+        <span class="ja">æ´»åã®æ¡å¤§ã«ä¼´ãã<strong style="color:var(--brown-light);">å®é¨åç©ã®å¼ãåãã«ç¹åããå°ç¨æ½è¨­ã®éå¶</strong>ã»3Rsç ç©¶æ¯æ´ã»å½éé£æºãªã©ãããåæ¬çãªæ¯æ´ä½å¶ãç®æãã¾ãã</span>
         <span class="en">As we scale, we plan to expand into <strong style="color:var(--brown-light);">operating a dedicated facility for receiving former laboratory animals</strong>, 3Rs research support, international collaboration, and more.</span>
       </p>
       <a href="#" onclick="showComingSoon(event)" class="work-phase-next-link">
-        <span class="ja">将来の展開を見る（準備中） →</span>
-        <span class="en">See our future vision (Coming Soon) →</span>
+        <span class="ja">å°æ¥ã®å±éãè¦ãï¼æºåä¸­ï¼ â</span>
+        <span class="en">See our future vision (Coming Soon) â</span>
       </a>
     </div>
   </div>
@@ -494,18 +495,18 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
 
 <!-- ===== 5. FINAL CTA ===== -->
 <section id="home-cta" class="reveal">
-  <div class="cta-eyebrow"><span class="ja">あなたの力が必要です</span><span class="en">We need your support</span></div>
+  <div class="cta-eyebrow"><span class="ja">ããªãã®åãå¿è¦ã§ã</span><span class="en">We need your support</span></div>
   <h2 class="cta-title">
-    <span class="ja">あなたの支援が、<em>この変化を実現します。</em></span>
+    <span class="ja">ããªãã®æ¯æ´ãã<em>ãã®å¤åãå®ç¾ãã¾ãã</em></span>
     <span class="en">Your support <em>makes this change possible.</em></span>
   </h2>
   <p class="cta-sub">
-    <span class="ja">Beagle Rehoming Japanは主にボランティアによって運営されています。いただいたご支援は、動物のケア・輸送・リホーミング活動のために使われます。</span>
+    <span class="ja">Beagle Rehoming Japanã¯ä¸»ã«ãã©ã³ãã£ã¢ã«ãã£ã¦éå¶ããã¦ãã¾ããããã ãããæ¯æ´ã¯ãåç©ã®ã±ã¢ã»è¼¸éã»ãªãã¼ãã³ã°æ´»åã®ããã«ä½¿ããã¾ãã</span>
     <span class="en">Beagle Rehoming Japan is primarily volunteer-driven. Donations are used to support animal care, transport, and our rehoming activities.</span>
   </p>
   <div class="cta-buttons">
-    <a href="contact.html" class="cta-btn-main"><span class="ja">寄付する</span><span class="en">Donate Now</span></a>
-    <a href="contact.html" class="cta-btn-sub"><span class="ja">お問い合わせ</span><span class="en">Get in Touch</span></a>
+    <a href="contact.html" class="cta-btn-main"><span class="ja">å¯ä»ãã</span><span class="en">Donate Now</span></a>
+    <a href="contact.html" class="cta-btn-sub"><span class="ja">ãåãåãã</span><span class="en">Get in Touch</span></a>
   </div>
 </section>
 
@@ -513,12 +514,12 @@ footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;di
 <footer>
   <div class="footer-logo">Beagle Rehoming Japan</div>
   <div class="footer-links">
-    <a href="#home-issues"><span class="ja">課題と変化</span><span class="en">Issues</span></a>
-    <a href="#home-roadmap"><span class="ja">ロードマップ</span><span class="en">Roadmap</span></a>
-    <a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a>
-    <a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    <a href="#home-issues"><span class="ja">èª²é¡ã¨å¤å</span><span class="en">Issues</span></a>
+    <a href="#home-roadmap"><span class="ja">ã­ã¼ãããã</span><span class="en">Roadmap</span></a>
+    <a href="adopt.html"><span class="ja">éè¦ªåé</span><span class="en">Adopt</span></a>
+    <a href="contact.html"><span class="ja">ãåãåãã</span><span class="en">Contact</span></a>
   </div>
-  <div class="footer-copy">© 2025 Beagle Rehoming Japan. All Rights Reserved.</div>
+  <div class="footer-copy">Â© 2025 Beagle Rehoming Japan. All Rights Reserved.</div>
 </footer>
 
 <script>
