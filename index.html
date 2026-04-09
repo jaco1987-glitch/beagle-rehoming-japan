@@ -1,12 +1,122 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beagle Rehoming Japan</title>
-</head>
-<body>
-<h1>Fix Japanese Text</h1>
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beagle Rehoming Japan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --white:#FDFAF6;--cream:#F5EFE6;--brown-light:#C4956A;--brown:#8B5E3C;
+      --brown-dark:#5C3D1E;--black:#1A1008;--gray:#6B6058;--gray-light:#D9CFC4;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+
+    .lang-toggle{display:flex;border:1.5px solid var(--brown);border-radius:4px;overflow:hidden;background:var(--white);flex-shrink:0;}
+    .lang-toggle button{padding:.32rem .75rem;border:none;background:transparent;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--brown);}
+    .lang-toggle button.active{background:var(--brown);color:var(--white);}
+    .ja{display:block;}.en{display:none;}
+    body.lang-en .ja{display:none;}body.lang-en .en{display:block;}
+    span.ja{display:inline;}span.en{display:none;}
+    body.lang-en span.ja{display:none;}body.lang-en span.en{display:inline;}
+
+    .nav-logo-text{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);}
+    .nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(253,250,246,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-light);}
+    .nav-links{display:flex;gap:1.6rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--gray);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--brown);}
+
+    .hero{background:var(--black);padding:4rem 5rem;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(92,61,30,.3) 0%, transparent 60%);pointer-events:none;}
+    .hero-inner{position:relative;z-index:1;max-width:720px;}
+    .hero-tag{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-light);border:1px solid rgba(196,149,106,.4);padding:.25rem .8rem;border-radius:2px;display:inline-block;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);line-height:1.2;margin-bottom:.8rem;}
+    .hero h1 em{font-style:italic;color:var(--brown-light);}
+    .hero p{font-size:.95rem;line-height:1.85;color:rgba(255,255,255,.6);max-width:580px;margin-bottom:2rem;}
+    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{padding:.85rem 2rem;background:var(--brown-light);color:var(--white);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+    .btn-primary:hover{background:#d4a56a;transform:translateY(-2px);}
+    .btn-outline{padding:.85rem 2rem;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--white);color:var(--white);}
+
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px 4px;background:none;border:none;flex-shrink:0;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
+
+    @media(max-width:1280px){
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+      nav{padding:.9rem 1.2rem;}
+      .hero{padding:5.5rem 1.8rem 3rem;}
+    }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>button>
+    <a href="#hero" class="nav-logo">
+    <img src="images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan" style="height:36px;width:auto;">
+    <span class="nav-logo-text">Beagle Rehoming Japan</span>
+    </a>a>
+    <ul class="nav-links">
+    <li><a href="#hero" class="active"><span class="ja">TOP</span><span class="en">TOP</span></a>a></li>
+    <li><a href="issues.html"><span class="ja">課題と意義</span>span><span class="en">Issues & Mission</span>span></a>a></li>
+    <li><a href="about.html"><span class="ja">団体について</span>span><span class="en">About</span>span></a>a></li>
+    <li><a href="adopt.html"><span class="ja">里親募集</span>span><span class="en">Adopt</span>span></a>a></li>
+    <li><a href="news.html"><span class="ja">ニュース</span>span><span class="en">News</span>span></a>a></li>
+    <li><a href="contact.html"><span class="ja">お問い合わせ</span>span><span class="en">Contact</span>span></a>a></li>
+    <li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span>span><span class="en">Donate (Coming Soon)</span>span></a>a></li>
+    </ul>ul>
+    <div class="lang-toggle">
+    <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>button>
+    </div>div>
+    </nav>
+  
+  <div class="hero" id="hero">
+  <div class="hero-inner">
+  <div class="hero-tag">
+  <span class="ja">実験動物のリホーミング</span>
+  <span class="en">Laboratory Animal Rehoming</span>
+  </div>div>
+  <h1>
+    <span class="ja">あたらしい<em>はじまり</em>。</span>
+  <span class="en">A new <em>beginning</em>.</span>
+  </h1>
+  <p>
+    <span class="ja">元研究用ビーグルたちの新しい未来のために。</span>
+    <span class="en">A new future for former laboratory beagles.</span>
+  </p>
+    <div class="hero-cta">
+      <a href="adopt.html" class="btn-primary">
+        <span class="ja">里親になる</span>
+        <span class="en">Find a Beagle</span>
+      </a>a>
+      <a href="#home-cta" class="btn-outline">
+        <span class="ja">支援・寄付をする</span>
+        <span class="en">Support & Donate</span>
+      </a>a>
+    </div>div>
+  </div>div>
+  </div>div>
+
+    <script>
+      function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');}
+      function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
+      if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+        </script>
+  </body>
+</html>html>
+    </script>
+  </p></em></em>
+  </h1></li></li></span></span>
+    </nav>
+  </body>
+  </style></title>
+  </head>
