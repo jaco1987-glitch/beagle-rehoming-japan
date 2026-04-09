@@ -597,9 +597,8 @@ function setLang(l){
   history.replaceState(null,'',u.toString());
   updateNavLang(l);
 }
-if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
 function updateNavLang(l){
-  document.querySelectorAll('.nav-links a').forEach(function(a){
+  document.querySelectorAll('.nav-links a, .footer-links a').forEach(function(a){
     var href=a.getAttribute('href');
     if(!href||href.startsWith('#'))return;
     var u=new URL(href,window.location.href);
@@ -607,9 +606,8 @@ function updateNavLang(l){
     a.setAttribute('href',u.pathname+u.search+(u.hash||''));
   });
 }
-function toggleMenu(){
-  document.querySelector('.nav-links').classList.toggle('open');
-}
+if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+function toggleMenu(){document.querySelector('.nav-links').classList.toggle('open');}
 function toggleFaq(el){
   var item=el.closest('.faq-item');
   var isOpen=item.classList.contains('open');
@@ -622,18 +620,12 @@ function updateBridgeArrows(){
   if(!top||!heads.length)return;
   var w=top.getBoundingClientRect().width;
   heads.forEach(function(h){
-    if(w<600){
-      h.style.cssText='width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:0;border-bottom:9px solid #C4956A;flex-shrink:0;';
-    }else{
-      h.style.cssText='width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #C4956A;border-right:0;flex-shrink:0;';
-    }
+    if(w<600){h.style.cssText='width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:0;border-bottom:9px solid #C4956A;flex-shrink:0;';}
+    else{h.style.cssText='width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid #C4956A;border-right:0;flex-shrink:0;';}
   });
 }
 window.addEventListener('load',updateBridgeArrows);
 window.addEventListener('resize',updateBridgeArrows);
-document.addEventListener('click',function(e){
-  if(e.target.closest('.adopt-anchor-link'))setTimeout(updateBridgeArrows,50);
-});
 </script>
 </body>
 </html>
