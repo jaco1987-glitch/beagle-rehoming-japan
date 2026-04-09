@@ -105,13 +105,35 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   footer{flex-direction:column;text-align:center;padding:1.8rem;}
 }
 
+
+/* FAQ SECTION */
+.faq-section{padding:4rem 5rem;background:var(--cream);}
+.faq-container{max-width:900px;margin:0 auto;}
+.faq-grid{display:flex;flex-direction:column;gap:1rem;}
+.faq-item{background:var(--white);border-radius:10px;overflow:hidden;border-top:3px solid var(--brown-light);}
+.faq-header{padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s;}
+.faq-header:hover{background:var(--cream);}
+.faq-question{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--brown-dark);margin:0;line-height:1.4;}
+.faq-icon{font-size:1.5rem;color:var(--brown);font-weight:700;transition:transform .3s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-answer{padding:0 2rem;max-height:0;overflow:hidden;transition:all .4s ease-in-out;}
+.faq-item.open .faq-answer{padding:0 2rem 1.5rem;max-height:500px;}
+.faq-answer p{font-size:.9rem;line-height:1.7;color:var(--gray);margin-bottom:1rem;}
+.faq-answer ul{margin:1rem 0;padding-left:1.2rem;}
+.faq-answer li{font-size:.9rem;line-height:1.7;color:var(--gray);margin-bottom:.5rem;}
+.faq-answer strong{color:var(--brown-dark);}
+@media(max-width:1280px){
+.faq-section{padding:3rem 1.8rem;}
+.faq-header{padding:1.2rem 1.5rem;}
+.faq-item.open .faq-answer{padding:0 1.5rem 1.2rem;}
+}
 </style>
 </head>
 <body>
 
 
 <nav>
-  <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" aria-label="ã¡ãã¥ã¼" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
   <a href="index.html" class="nav-logo">
@@ -120,12 +142,12 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   </a>
   <ul class="nav-links">
     <li><a href="index.html"><span class="ja">TOP</span><span class="en">TOP</span></a></li>
-    <li><a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues &amp; Mission</span></a></li>
-    <li><a href="about.html" class="active"><span class="ja">団体について</span><span class="en">About</span></a></li>
-    <li><a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a></li>
-    <li><a href="news.html"><span class="ja">ニュース</span><span class="en">News</span></a></li>
-    <li><a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a></li>
-    <li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span><span class="en">Donate (Coming Soon)</span></a></li>
+    <li><a href="issues.html"><span class="ja">èª²é¡ã¨æç¾©</span><span class="en">Issues &amp; Mission</span></a></li>
+    <li><a href="about.html" class="active"><span class="ja">å£ä½ã«ã¤ãã¦</span><span class="en">About</span></a></li>
+    <li><a href="adopt.html"><span class="ja">éè¦ªåé</span><span class="en">Adopt</span></a></li>
+    <li><a href="news.html"><span class="ja">ãã¥ã¼ã¹</span><span class="en">News</span></a></li>
+    <li><a href="contact.html"><span class="ja">ãåãåãã</span><span class="en">Contact</span></a></li>
+    <li><a href="#" class="btn-donate"><span class="ja">å¯ä»ï¼æºåä¸­ï¼</span><span class="en">Donate (Coming Soon)</span></a></li>
   </ul>
   <div class="lang-toggle">
     <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>
@@ -136,36 +158,36 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 <!-- HERO -->
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-tag"><span class="ja">団体紹介</span><span class="en">About Us</span></div>
+    <div class="page-hero-tag"><span class="ja">å£ä½ç´¹ä»</span><span class="en">About Us</span></div>
     <h1>
-      <span class="ja">ビーグルと人を<em>つなぐ団体</em></span>
+      <span class="ja">ãã¼ã°ã«ã¨äººã<em>ã¤ãªãå£ä½</em></span>
       <span class="en">Connecting beagles <em>with people</em></span>
     </h1>
     <p>
-      <span class="ja">実験動物としての役割を終えたビーグルに、新たな生活の機会を提供します。科学と動物福祉の両立を目指して。</span>
-      <span class="en">Providing new opportunities for beagles whose role in research has ended — working toward a society where science and animal welfare coexist.</span>
+      <span class="ja">å®é¨åç©ã¨ãã¦ã®å½¹å²ãçµãããã¼ã°ã«ã«ãæ°ããªçæ´»ã®æ©ä¼ãæä¾ãã¾ããç§å­¦ã¨åç©ç¦ç¥ã®ä¸¡ç«ãç®æãã¦ã</span>
+      <span class="en">Providing new opportunities for beagles whose role in research has ended â working toward a society where science and animal welfare coexist.</span>
     </p>
   </div>
 </div>
 
 <!-- MISSION / VISION -->
 <section class="mv-section">
-  <div class="section-label"><span class="ja">私たちの理念</span><span class="en">Our Purpose</span></div>
+  <div class="section-label"><span class="ja">ç§ãã¡ã®çå¿µ</span><span class="en">Our Purpose</span></div>
   <h2 class="section-title"><span class="ja">Mission &amp; <em>Vision</em></span><span class="en">Mission &amp; <em>Vision</em></span></h2>
   <div class="divider"></div>
   <div class="mv-grid">
     <div class="mv-card mission">
       <div class="mv-card-label">Mission</div>
       <p class="mv-card-text">
-        <span class="ja">実験動物としての役割を終えた犬たちに、新たな生活の機会を提供する</span>
+        <span class="ja">å®é¨åç©ã¨ãã¦ã®å½¹å²ãçµããç¬ãã¡ã«ãæ°ããªçæ´»ã®æ©ä¼ãæä¾ãã</span>
         <span class="en">To provide new opportunities in life for dogs whose role as laboratory animals has ended</span>
       </p>
     </div>
     <div class="mv-card vision">
       <div class="mv-card-label">Vision</div>
       <p class="mv-card-text">
-        <span class="ja">科学の発展と動物福祉が両立し、実験動物が役割を終えた後も尊重される社会を実現する</span>
-        <span class="en">A society where scientific progress and animal welfare coexist — where laboratory animals are respected even after their role has ended</span>
+        <span class="ja">ç§å­¦ã®çºå±ã¨åç©ç¦ç¥ãä¸¡ç«ããå®é¨åç©ãå½¹å²ãçµããå¾ãå°éãããç¤¾ä¼ãå®ç¾ãã</span>
+        <span class="en">A society where scientific progress and animal welfare coexist â where laboratory animals are respected even after their role has ended</span>
       </p>
     </div>
   </div>
@@ -173,15 +195,15 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 
 <!-- ABOUT -->
 <section class="about-section">
-  <div class="section-label"><span class="ja">団体について</span><span class="en">About the Organization</span></div>
+  <div class="section-label"><span class="ja">å£ä½ã«ã¤ãã¦</span><span class="en">About the Organization</span></div>
   <h2 class="section-title"><span class="ja">Beagle Rehoming <em>Japan</em></span><span class="en">Beagle Rehoming <em>Japan</em></span></h2>
   <div class="divider"></div>
   <div class="about-body">
     <span class="ja">
-      <p>Beagle Rehoming Japanは、実験動物としての役割を終えたビーグル犬に新たな生活の機会を提供することを目的とした団体です。</p>
-      <p>日本では現在も多くの犬が創薬・医療研究に使用されていますが、その後の受け入れ体制は十分に整備されているとは言えません。</p>
-      <p>私たちは、研究機関・企業・獣医師・市民をつなぐことで、実験動物のリホーミングを現実的な選択肢として社会に根付かせることを目指しています。</p>
-      <p>また、科学的背景に基づいた情報発信を通じて、動物実験と動物福祉の両立についての理解促進にも取り組んでいます。</p>
+      <p>Beagle Rehoming Japanã¯ãå®é¨åç©ã¨ãã¦ã®å½¹å²ãçµãããã¼ã°ã«ç¬ã«æ°ããªçæ´»ã®æ©ä¼ãæä¾ãããã¨ãç®çã¨ããå£ä½ã§ãã</p>
+      <p>æ¥æ¬ã§ã¯ç¾å¨ãå¤ãã®ç¬ãåµè¬ã»å»çç ç©¶ã«ä½¿ç¨ããã¦ãã¾ããããã®å¾ã®åãå¥ãä½å¶ã¯ååã«æ´åããã¦ããã¨ã¯è¨ãã¾ããã</p>
+      <p>ç§ãã¡ã¯ãç ç©¶æ©é¢ã»ä¼æ¥­ã»ç£å»å¸«ã»å¸æ°ãã¤ãªããã¨ã§ãå®é¨åç©ã®ãªãã¼ãã³ã°ãç¾å®çãªé¸æè¢ã¨ãã¦ç¤¾ä¼ã«æ ¹ä»ããããã¨ãç®æãã¦ãã¾ãã</p>
+      <p>ã¾ããç§å­¦çèæ¯ã«åºã¥ããæå ±çºä¿¡ãéãã¦ãåç©å®é¨ã¨åç©ç¦ç¥ã®ä¸¡ç«ã«ã¤ãã¦ã®çè§£ä¿é²ã«ãåãçµãã§ãã¾ãã</p>
     </span>
     <span class="en">
       <p>Beagle Rehoming Japan is an organization dedicated to providing new opportunities in life for beagles whose role as laboratory animals has ended.</p>
@@ -194,33 +216,33 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 
 <!-- FOUNDER -->
 <section class="founder-section">
-  <div class="section-label"><span class="ja">代表紹介</span><span class="en">Founder</span></div>
-  <h2 class="section-title"><span class="ja">代表者より</span><span class="en">From the <em>Founder</em></span></h2>
+  <div class="section-label"><span class="ja">ä»£è¡¨ç´¹ä»</span><span class="en">Founder</span></div>
+  <h2 class="section-title"><span class="ja">ä»£è¡¨èãã</span><span class="en">From the <em>Founder</em></span></h2>
   <div class="divider"></div>
   <div class="founder-card">
-    <div class="founder-avatar">🐾</div>
+    <div class="founder-avatar">ð¾</div>
     <div>
-      <div class="founder-name"><span class="ja">代表</span><span class="en">Founder</span></div>
+      <div class="founder-name"><span class="ja">ä»£è¡¨</span><span class="en">Founder</span></div>
       <div class="founder-title">Beagle Rehoming Japan</div>
       <div class="founder-bio">
         <span class="ja">
-          <p>ライフサイエンス分野のPhDとして創薬研究に従事し、新規モダリティ（NAMS: New Approach Methodologies）の開発に取り組んできました。</p>
-          <p>動物実験の代替・削減に資する技術開発に関わる一方で、現時点においても動物実験が果たしている重要な役割と、その後の動物たちの行き場という課題の両方に向き合ってきました。</p>
-          <p>現在、ビーグルを2頭引き取り飼育しており、彼らが家庭の中で穏やかに暮らし、人と深い関係性を築ける存在であることを日々実感しています。</p>
-          <p>この経験と科学的視点の両方から、実験動物のリホーミングという選択肢を社会に広げる必要性を強く感じ、Beagle Rehoming Japanの活動を開始しました。</p>
+          <p>ã©ã¤ããµã¤ã¨ã³ã¹åéã®PhDã¨ãã¦åµè¬ç ç©¶ã«å¾äºããæ°è¦ã¢ããªãã£ï¼NAMS: New Approach Methodologiesï¼ã®éçºã«åãçµãã§ãã¾ããã</p>
+          <p>åç©å®é¨ã®ä»£æ¿ã»åæ¸ã«è³ããæè¡éçºã«é¢ããä¸æ¹ã§ãç¾æç¹ã«ããã¦ãåç©å®é¨ãæããã¦ããéè¦ãªå½¹å²ã¨ããã®å¾ã®åç©ãã¡ã®è¡ãå ´ã¨ããèª²é¡ã®ä¸¡æ¹ã«åãåã£ã¦ãã¾ããã</p>
+          <p>ç¾å¨ããã¼ã°ã«ã2é ­å¼ãåãé£¼è²ãã¦ãããå½¼ããå®¶åº­ã®ä¸­ã§ç©ããã«æ®ãããäººã¨æ·±ãé¢ä¿æ§ãç¯ããå­å¨ã§ãããã¨ãæ¥ãå®æãã¦ãã¾ãã</p>
+          <p>ãã®çµé¨ã¨ç§å­¦çè¦ç¹ã®ä¸¡æ¹ãããå®é¨åç©ã®ãªãã¼ãã³ã°ã¨ããé¸æè¢ãç¤¾ä¼ã«åºããå¿è¦æ§ãå¼·ãæããBeagle Rehoming Japanã®æ´»åãéå§ãã¾ããã</p>
         </span>
         <span class="en">
           <p>As a PhD in the life sciences, I have worked in drug discovery research and contributed to the development of New Approach Methodologies (NAMS).</p>
           <p>Through my involvement in technologies aimed at replacing and reducing animal use, I have faced both the important role that animal research continues to play today, and the challenge of what happens to these animals afterward.</p>
           <p>I currently care for two beagles I have adopted, and witness daily how they can live peacefully in a home and build deep bonds with people.</p>
-          <p>Drawing from both this personal experience and my scientific perspective, I felt strongly that society needed more pathways for rehoming laboratory animals — and so I founded Beagle Rehoming Japan.</p>
+          <p>Drawing from both this personal experience and my scientific perspective, I felt strongly that society needed more pathways for rehoming laboratory animals â and so I founded Beagle Rehoming Japan.</p>
         </span>
       </div>
       <div class="founder-tags">
-        <span class="founder-tag">PhD · Life Sciences</span>
+        <span class="founder-tag">PhD Â· Life Sciences</span>
         <span class="founder-tag">NAMS / NAMs</span>
-        <span class="founder-tag"><span class="ja">創薬研究</span><span class="en">Drug Discovery</span></span>
-        <span class="founder-tag"><span class="ja">ビーグル2頭飼育中</span><span class="en">Beagle owner × 2</span></span>
+        <span class="founder-tag"><span class="ja">åµè¬ç ç©¶</span><span class="en">Drug Discovery</span></span>
+        <span class="founder-tag"><span class="ja">ãã¼ã°ã«2é ­é£¼è²ä¸­</span><span class="en">Beagle owner Ã 2</span></span>
       </div>
     </div>
   </div>
@@ -229,28 +251,126 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 <!-- CTA -->
 <section class="about-cta">
   <h2 class="about-cta-title">
-    <span class="ja">一緒に、<em>変化をつくりましょう。</em></span>
+    <span class="ja">ä¸ç·ã«ã<em>å¤åãã¤ããã¾ãããã</em></span>
     <span class="en">Let's create <em>change together.</em></span>
   </h2>
   <p class="about-cta-sub">
-    <span class="ja">里親として、支援者として、または研究者・行政の立場として。あなたの関わり方で、一緒に取り組めることがあります。</span>
-    <span class="en">As an adopter, a supporter, or from a research or regulatory perspective — there are ways to get involved that fit your role.</span>
+    <span class="ja">éè¦ªã¨ãã¦ãæ¯æ´èã¨ãã¦ãã¾ãã¯ç ç©¶èã»è¡æ¿ã®ç«å ´ã¨ãã¦ãããªãã®é¢ããæ¹ã§ãä¸ç·ã«åãçµãããã¨ãããã¾ãã</span>
+    <span class="en">As an adopter, a supporter, or from a research or regulatory perspective â there are ways to get involved that fit your role.</span>
   </p>
   <div class="cta-buttons">
-    <a href="adopt.html" class="btn-primary"><span class="ja">里親募集を見る</span><span class="en">View Adoptions</span></a>
-    <a href="contact.html" class="btn-outline"><span class="ja">お問い合わせ</span><span class="en">Contact Us</span></a>
+    <a href="adopt.html" class="btn-primary"><span class="ja">éè¦ªåéãè¦ã</span><span class="en">View Adoptions</span></a>
+    <a href="contact.html" class="btn-outline"><span class="ja">ãåãåãã</span><span class="en">Contact Us</span></a>
   </div>
+</section>
+
+
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+    <div class="faq-container">
+        <div class="section-label"><span class="ja">よくある質問</span><span class="en">Frequently Asked Questions</span></div>
+        <h2 class="section-title"><span class="ja">よくある<em>質問</em></span><span class="en">Frequently Asked <em>Questions</em></span></h2>
+        <div class="divider"></div>
+
+        <div class="faq-grid">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFAQ(this)">
+                    <h3 class="faq-question">
+                        <span class="ja">団体の動物実験に対するスタンスを教えてください。</span>
+                        <span class="en">What is your organization's stance on animal experimentation?</span>
+                    </h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="ja">
+                        <p>私たちは動物実験の廃止を求める活動団体ではありません。現在の医薬品開発において動物実験が果たしている役割を理解した上で、実験を終えたビーグルたちに新しい生活の場を提供することに注力しています。</p>
+                        <p>動物実験に反対するのではなく、使用後の動物たちの福祉向上を通じて、科学と動物愛護の共存を目指しています。</p>
+                    </div>
+                    <div class="en">
+                        <p>We are not an organization that advocates for the abolition of animal testing. Understanding the role that animal testing plays in current pharmaceutical development, we focus on providing new homes for beagles after their research role ends.</p>
+                        <p>Rather than opposing animal testing, we aim for coexistence between science and animal welfare through improving the welfare of animals after use.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFAQ(this)">
+                    <h3 class="faq-question">
+                        <span class="ja">研究機関との協力関係について教えてください。</span>
+                        <span class="en">How do you collaborate with research institutions?</span>
+                    </h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="ja">
+                        <p>私たちは以下の4つの柱を通じて研究機関との連携を深めています：</p>
+                        <ul>
+                            <li><strong>引き取りルートの確立：</strong>研究終了後のビーグルを安全に引き取るための手続きとルートを整備</li>
+                            <li><strong>ネットワーク構築：</strong>研究機関・動物取扱業者・愛護団体間の信頼関係構築</li>
+                            <li><strong>啓発活動：</strong>リホーミングという選択肢の認知度向上</li>
+                            <li><strong>制度への働きかけ：</strong>動物愛護法などの制度改善に向けた提言活動</li>
+                        </ul>
+                    </div>
+                    <div class="en">
+                        <p>We deepen collaboration with research institutions through four pillars:</p>
+                        <ul>
+                            <li><strong>Establishing pickup routes:</strong> Setting up procedures and routes for safely receiving beagles after research ends</li>
+                            <li><strong>Network building:</strong> Building trust between research institutions, animal handlers, and welfare organizations</li>
+                            <li><strong>Outreach activities:</strong> Increasing awareness of rehoming as an option</li>
+                            <li><strong>Policy advocacy:</strong> Working toward improvements in animal welfare laws and systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFAQ(this)">
+                    <h3 class="faq-question">
+                        <span class="ja">寄付金はどのように使われますか？</span>
+                        <span class="en">How are donations used?</span>
+                    </h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="ja">
+                        <p>寄付金は主に以下の用途で使用されます：</p>
+                        <ul>
+                            <li><strong>譲渡前後のサポート：</strong>健康診断、ワクチン接種、不妊去勢手術などの医療費</li>
+                            <li><strong>広報・啓発活動：</strong>ウェブサイト運営、イベント開催、資料作成費</li>
+                            <li><strong>運営費：</strong>事務所維持費、スタッフ人件費、交通費</li>
+                            <li><strong>将来の施設整備：</strong>一時預かり施設の設立・運営資金</li>
+                        </ul>
+                        <p>すべての支出について透明性を保ち、定期的に収支報告を行います。</p>
+                    </div>
+                    <div class="en">
+                        <p>Donations are primarily used for:</p>
+                        <ul>
+                            <li><strong>Pre and post-transfer support:</strong> Medical expenses including health checks, vaccinations, and spay/neuter surgeries</li>
+                            <li><strong>Communications and outreach:</strong> Website operation, event hosting, and material creation</li>
+                            <li><strong>Operations:</strong> Office maintenance, staff salaries, and transportation costs</li>
+                            <li><strong>Future facility development:</strong> Establishment and operation of temporary care facilities</li>
+                        </ul>
+                        <p>We maintain transparency in all expenditures and provide regular financial reports.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <footer>
   <div class="footer-logo">Beagle Rehoming Japan</div>
   <div class="footer-links">
-    <a href="index.html"><span class="ja">ホーム</span><span class="en">Home</span></a>
-    <a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues</span></a>
-    <a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a>
-    <a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    <a href="index.html"><span class="ja">ãã¼ã </span><span class="en">Home</span></a>
+    <a href="issues.html"><span class="ja">èª²é¡ã¨æç¾©</span><span class="en">Issues</span></a>
+    <a href="adopt.html"><span class="ja">éè¦ªåé</span><span class="en">Adopt</span></a>
+    <a href="contact.html"><span class="ja">ãåãåãã</span><span class="en">Contact</span></a>
   </div>
-  <div>© 2025 Beagle Rehoming Japan</div>
+  <div>Â© 2025 Beagle Rehoming Japan</div>
 </footer>
 
 <script>
@@ -262,5 +382,23 @@ function updateNavLang(l){document.querySelectorAll('.nav-links a[href]').forEac
 (function(){var p=new URLSearchParams(window.location.search);if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}})();
 function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});</script>
+
+<script>
+
+function toggleFAQ(header) {
+    const item = header.parentElement;
+    const isOpen = item.classList.contains('open');
+    
+    // 他のFAQを閉じる
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        if (openItem !== item) {
+            openItem.classList.remove('open');
+        }
+    });
+    
+    // クリックされたFAQを開閉
+    item.classList.toggle('open', !isOpen);
+}
+</script>
 </body>
 </html>
