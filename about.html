@@ -104,7 +104,75 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
   .founder-card{grid-template-columns:1fr;gap:1.5rem;}
   footer{flex-direction:column;text-align:center;padding:1.8rem;}
 }
+/* FAQ Styles */
+        .faq {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
 
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5530;
+            font-size: 2.5rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .faq-header {
+            background: #2c5530;
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-header:hover {
+            background: #3a6b3f;
+        }
+
+        .faq-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-content {
+            padding: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .faq-content p {
+            margin: 0;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .faq {
+                padding: 3rem 1rem;
+            }
+
+            .faq h2 {
+                font-size: 2rem;
+            }
+
+            .faq-header h3 {
+                font-size: 1rem;
+            }
+        }
 </style>
 </head>
 <body>
@@ -244,6 +312,112 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 
 <footer>
   <div class="footer-logo">Beagle Rehoming Japan</div>
+
+      <!-- FAQ Section -->
+      <section class="faq" id="faq">
+                <div class="container">
+                              <h2>
+                                                <span class="ja">よくある質問</span>span>
+                                                <span class="en">Frequently Asked Questions</span>span>
+                              </h2>
+
+                              <div class="faq-container">
+                                                <div class="faq-item">
+                                                                      <div class="faq-header">
+                                                                                                <h3>
+                                                                                                                              <span class="ja">元研究用ビーグルとはどのような犬ですか？</span>span>
+                                                                                                                              <span class="en">What are former research beagles?</span>span>
+                                                                                                  </h3>
+                                                                      </div>div>
+                                                                      <div class="faq-content">
+                                                                                                <p>
+                                                                                                                              <span class="ja">元研究用ビーグルは、製薬会社や研究機関で医学研究や薬事試験に使用された後、役目を終えたビーグルです。これらの犬は生来の温厚で人懐っこい性格を保っており、適切なケアとリハビリテーションにより、素晴らしい家族の一員となることができます。</span>span>
+                                                                                                                              <span class="en">Former research beagles are dogs that were used in medical research and pharmaceutical testing at companies and research institutions, and have completed their role. These dogs retain their naturally gentle and friendly personalities, and with proper care and rehabilitation, can become wonderful family members.</span>span>
+                                                                                                  </p>
+                                                                      </div>div>
+                                                </div>div>
+
+                                                <div class="faq-item">
+                                                                      <div class="faq-header">
+                                                                                                <h3>
+                                                                                                                              <span class="ja">元研究用ビーグルの健康状態はどうですか？</span>span>
+                                                                                                                              <span class="en">What is the health condition of former research beagles?</span>span>
+                                                                                                  </h3>
+                                                                      </div>div>
+                                                                      <div class="faq-content">
+                                                                                                <p>
+                                                                                                                              <span class="ja">研究施設では適切な医療管理が行われているため、多くの元研究用ビーグルは良好な健康状態にあります。引き渡し前には獣医師による詳細な健康診断を実施し、必要な予防接種や治療を行います。個々の健康状態については、里親候補者に詳細な情報を提供いたします。</span>span>
+                                                                                                                              <span class="en">Because proper medical management is conducted in research facilities, many former research beagles are in good health. Before handover, detailed health examinations are conducted by veterinarians, and necessary vaccinations and treatments are provided. Detailed information about individual health conditions is provided to prospective adopters.</span>span>
+                                                                                                  </p>
+                                                                      </div>div>
+                                                </div>div>
+
+                                                <div class="faq-item">
+                                                                      <div class="faq-header">
+                                                                                                <h3>
+                                                                                                                              <span class="ja">元研究用ビーグルは家庭環境に慣れますか？</span>span>
+                                                                                                                              <span class="en">Can former research beagles adapt to home environments?</span>span>
+                                                                                                  </h3>
+                                                                      </div>div>
+                                                                      <div class="faq-content">
+                                                                                                <p>
+                                                                                                                              <span class="ja">はい、ビーグルは本来社交的で適応力の高い犬種です。研究施設で人との接触に慣れているため、愛情深い環境では比較的短期間で家庭生活に適応します。ただし、新しい環境への適応期間として数週間から数ヶ月必要な場合があります。私たちは適応をサポートするためのガイダンスを提供いたします。</span>span>
+                                                                                                                              <span class="en">Yes, beagles are naturally sociable and highly adaptable dogs. Since they are accustomed to human contact in research facilities, they adapt to family life relatively quickly in loving environments. However, an adaptation period of several weeks to months may be necessary. We provide guidance to support this adaptation process.</span>span>
+                                                                                                  </p>
+                                                                      </div>div>
+                                                </div>div>
+
+                                                <div class="faq-item">
+                                                                      <div class="faq-header">
+                                                                                                <h3>
+                                                                                                                              <span class="ja">特別なケアや注意点はありますか？</span>span>
+                                                                                                                              <span class="en">Are there any special care requirements or considerations?</span>span>
+                                                                                                  </h3>
+                                                                      </div>div>
+                                                                      <div class="faq-content">
+                                                                                                <p>
+                                                                                                                              <span class="ja">元研究用ビーグルの多くは、屋外での散歩や一般的な家庭の音（掃除機、テレビなど）に慣れていない場合があります。また、他の動物との接触が限られていた可能性もあります。段階的な慣らしとポジティブな経験の積み重ねが重要です。定期的な運動と愛情深い接触により、健康で幸せな生活を送ることができます。</span>span>
+                                                                                                                              <span class="en">Many former research beagles may not be accustomed to outdoor walks or common household sounds (vacuum cleaners, television, etc.). They may also have had limited contact with other animals. Gradual acclimatization and positive experiences are important. With regular exercise and loving contact, they can live healthy and happy lives.</span>span>
+                                                                                                  </p>
+                                                                      </div>div>
+                                                </div>div>
+
+                                                <div class="faq-item">
+                                                                      <div class="faq-header">
+                                                                                                <h3>
+                                                                                                                              <span class="ja">年齢はどのくらいですか？</span>span>
+                                                                                                                              <span class="en">What ages are they typically?</span>span>
+                                                                                                  </h3>
+                                                                      </div>div>
+                                                                      <div class="faq-content">
+                                                                                                <p>
+                                                                                                                              <span class="ja">元研究用ビーグルの年齢は様々ですが、一般的には2歳から8歳程度です。研究の種類や期間によって異なりますが、多くは成犬として健康で活発な時期にあります。年齢に応じた適切なケアとサポートについて、詳しくご相談いたします。</span>span>
+                                                                                                                              <span class="en">The ages of former research beagles vary, but they are typically between 2 and 8 years old. While this depends on the type and duration of research, many are in their healthy and active adult years. We provide detailed consultation about appropriate care and support based on age.</span>span>
+                                                                                                  </p>
+                                                                      </div>div>
+                                                </div>div>
+
+                                                <div class="faq-item">
+                                                                      <div class="faq-header">
+                                                                                                <h3>
+                                                                                                                              <span class="ja">リホーミングの費用はかかりますか？</span>span>
+                                                                                                                              <span class="en">Are there costs associated with rehoming?</span>span>
+                                                                                                  </h3>
+                                                                      </div>div>
+                                                                      <div class="faq-content">
+                                                                                                <p>
+                                                                                                                              <span class="ja">基本的なリホーミングに費用は発生しませんが、健康診断、予防接種、必要に応じた治療費については実費をお願いする場合があります。また、輸送費や初期の必要用品（ケージ、リード等）については里親様にご負担いただきます。詳細な費用については個別にご相談させていただきます。</span>span>
+                                                                                                                              <span class="en">While basic rehoming costs are not charged, we may ask for actual costs for health examinations, vaccinations, and necessary treatments. Additionally, transportation costs and initial necessary supplies (cages, leashes, etc.) are the responsibility of the adopter. Detailed costs will be discussed individually.</span>span>
+                                                                                                  </p>
+                                                                      </div>div>
+                                                </div>div>
+                              </div>div>
+                </div>div>
+      </section>section>
+                                                                                                </p>
+                                                                                                </p>
+                                                                                                </h3>
+                              </h2>
   <div class="footer-links">
     <a href="index.html"><span class="ja">ホーム</span><span class="en">Home</span></a>
     <a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues</span></a>
