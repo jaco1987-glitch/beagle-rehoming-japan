@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beagle Rehoming Japan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FDFAF6;--cream:#F5EFE6;--brown-light:#C4956A;--brown:#8B5E3C;
+  --brown-dark:#5C3D1E;--black:#1A1008;--gray:#6B6058;--gray-light:#D9CFC4;
+  --green-dark:#1B5E20;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+
+/* LANG */
+.lang-toggle{display:flex;border:1.5px solid var(--brown);border-radius:4px;overflow:hidden;background:var(--white);flex-shrink:0;}
+.lang-toggle button{padding:.32rem .75rem;border:none;background:transparent;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--brown);transition:all .22s;}
+.lang-toggle button.active{background:var(--brown);color:var(--white);}
+.ja{display:block;}.en{display:none;}
+body.lang-en .ja{display:none;}body.lang-en .en{display:block;}
+span.ja{display:inline;}span.en{display:none;}
+body.lang-en span.ja{display:none;}body.lang-en span.en{display:inline;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(253,250,246,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-light);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(90,50,20,.1);}
+.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--gray);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--brown);transition:width .3s;}
+.nav-links a:hover{color:var(--brown);}
+.nav-links a:hover::after{width:100%;}
+
+
+/* SHARED */
+section{padding:5rem 5rem;}
+.section-label{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brown);margin-bottom:.6rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);color:var(--brown-dark);line-height:1.25;margin-bottom:1rem;}
+.section-title em{font-style:italic;}
+.section-body{font-size:.95rem;line-height:1.9;color:var(--gray);max-width:540px;}
+.divider{width:42px;height:3px;background:var(--brown-light);border-radius:2px;margin:1rem 0 1.6rem;}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.btn-primary{padding:.82rem 1.9rem;background:var(--brown-dark);color:var(--white);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:background .25s,transform .2s;display:inline-block;}
+.btn-primary:hover{background:var(--brown);transform:translateY(-2px);}
+.btn-outline{padding:.82rem 1.9rem;border:1.5px solid var(--brown);color:var(--brown-dark);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+.btn-outline:hover{background:var(--brown);color:var(--white);transform:translateY(-2px);}
+
+/* ── 1. HERO ── */
+#hero{min-height:100vh;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--black);padding:0;}
+.hero-slides{position:absolute;inset:0;z-index:1;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+.hero-slide.active{opacity:1;}
+#hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(26,16,8,.88) 0%,rgba(26,16,8,.72) 45%,rgba(26,16,8,.35) 70%,rgba(26,16,8,.1) 100%);z-index:1;pointer-events:none;}
+.hero-content{position:relative;z-index:2;padding:8rem 3.5rem 5rem 5rem;}
+.hero-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brown-light);border:1px solid rgba(196,149,106,.5);padding:.28rem .9rem;border-radius:2px;margin-bottom:1.3rem;animation:fadeUp .8s ease both;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1.15;color:var(--white);margin-bottom:1.3rem;animation:fadeUp .8s .15s ease both;}
+.hero-title em{font-style:italic;color:var(--brown-light);}
+.hero-title .hero-en-sub{display:block;font-size:clamp(.9rem,1.6vw,1.15rem);font-family:'Lato',sans-serif;font-style:normal;font-weight:300;color:rgba(255,255,255,.5);letter-spacing:.03em;margin-top:.5rem;}
+.hero-sub{font-size:.97rem;line-height:1.85;color:rgba(255,255,255,.75);max-width:420px;margin-bottom:2rem;animation:fadeUp .8s .3s ease both;}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;animation:fadeUp .8s .45s ease both;}
+.hero-cta .btn-outline{border-color:rgba(255,255,255,.45);color:var(--white);}
+.hero-cta .btn-outline:hover{background:var(--white);color:var(--brown-dark);}
+.hero-btn-donate{border-color:rgba(196,149,106,.6) !important;color:var(--brown-light) !important;}
+.hero-btn-donate:hover{background:var(--brown-light) !important;color:var(--white) !important;}
+
+
+.hero-dots{position:absolute;bottom:2rem;left:5rem;z-index:3;display:flex;gap:.45rem;}
+.hero-dot{width:24px;height:3px;background:rgba(255,255,255,.28);border-radius:2px;cursor:pointer;transition:all .3s;border:none;}
+.hero-dot.active{background:var(--brown-light);width:40px;}
+.hero-badge{position:absolute;bottom:2rem;right:3rem;z-index:3;background:rgba(92,61,30,.82);backdrop-filter:blur(8px);color:var(--white);padding:.85rem 1.3rem;border-radius:6px;text-align:center;border:1px solid rgba(196,149,106,.32);}
+.hero-badge .num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;line-height:1;}
+.hero-badge .lbl{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;}
+
+/* ── 2. ISSUES & IMPACT ── */
+#home-issues{background:var(--cream);padding:4.5rem 5rem;}
+.hi-pair-main{display:grid;grid-template-columns:1fr 72px 1fr;align-items:stretch;gap:0;margin:2.5rem 0 2rem;}
+.hi-main-card{border-radius:10px;padding:2.4rem 2.6rem;position:relative;overflow:hidden;}
+.hi-main-card.issue{background:var(--black);border-top:3px solid var(--gray);}
+.hi-main-card.impact{background:var(--brown-dark);border-top:3px solid var(--brown-light);}
+.hi-main-tag{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.2rem .72rem;border-radius:2px;display:inline-block;margin-bottom:1rem;}
+.hi-main-card.issue .hi-main-tag{background:rgba(255,255,255,.1);color:var(--gray-light);}
+.hi-main-card.impact .hi-main-tag{background:rgba(196,149,106,.2);color:var(--brown-light);}
+.hi-main-head{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;line-height:1.5;margin-bottom:.9rem;}
+.hi-main-card.issue .hi-main-head{color:var(--white);}
+.hi-main-card.impact .hi-main-head{color:var(--white);}
+.hi-main-en{font-size:.78rem;font-style:italic;line-height:1.68;border-top:1px solid rgba(255,255,255,.1);padding-top:.8rem;margin-top:.2rem;}
+.hi-main-card.issue .hi-main-en{color:rgba(255,255,255,.4);}
+.hi-main-card.impact .hi-main-en{color:rgba(196,149,106,.6);}
+.hi-center-arrow{display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--brown-light);}
+.hi-learn-more{text-align:center;}
+.hi-learn-link{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:700;color:var(--brown);text-decoration:none;border-bottom:1.5px solid var(--brown-light);padding-bottom:.15rem;letter-spacing:.04em;transition:gap .2s,color .2s;}
+.hi-learn-link:hover{gap:.75rem;color:var(--brown-dark);}
+
+/* ── 3. ROADMAP ── */
+#home-roadmap{background:var(--black);padding:5rem 5rem;}
+#home-roadmap .section-label{color:var(--brown-light);}
+#home-roadmap .section-title{color:var(--white);}
+#home-roadmap .section-title em{color:var(--brown-light);}
+#home-roadmap .divider{background:var(--brown-light);}
+#home-roadmap .section-body{color:rgba(255,255,255,.65);}
+.rm-now{display:inline-flex;align-items:center;gap:.55rem;background:#2D5A27;color:var(--white);padding:.45rem 1.1rem;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:1.5rem;}
+.rm-dot{width:8px;height:8px;border-radius:50%;background:#7BC67E;box-shadow:0 0 0 3px rgba(123,198,126,.3);animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(123,198,126,.3);}50%{box-shadow:0 0 0 7px rgba(123,198,126,.1));}}
+.rm-phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.rm-phase{background:#0D1A0C;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;}
+.rm-phase.current{border-color:#4A7A42;box-shadow:0 0 0 1px #4A7A42;}
+.rm-ptag{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7BC67E;background:rgba(74,122,66,.2);border:1px solid rgba(74,122,66,.3);padding:.2rem .65rem;border-radius:4px;display:inline-block;margin-bottom:.7rem;}
+.rm-ptitle-sep{color:rgba(255,255,255,.2);font-style:normal;font-family:'Lato',sans-serif;margin:0 .1rem;}
+.rm-ptitle-en{display:inline;font-size:.75rem;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.4);font-style:normal;font-family:'Lato',sans-serif;margin-left:.5rem;}
+.rm-ptitle{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--white);margin-bottom:.4rem;font-weight:400;}
+.rm-psub{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:.5rem;}
+.rm-pdesc{font-size:.78rem;line-height:1.68;color:rgba(255,255,255,.5);margin-bottom:.9rem;}
+.rm-metric-row{display:flex;gap:1.2rem;}
+.rm-metric-mini{background:rgba(255,255,255,.05);border-radius:6px;padding:.6rem .8rem;flex:1;text-align:center;}
+.rm-metric-mini .val{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);font-weight:700;}
+.rm-metric-mini .sub{font-size:.62rem;color:rgba(255,255,255,.4);margin-top:.15rem;}
+
+/* Donation usage */
+.donation-section{margin-top:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.8rem 2.2rem;}
+.donation-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap;}
+.donation-phase-tag{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brown-light);background:rgba(196,149,106,.15);border:1px solid rgba(196,149,106,.25);padding:.18rem .65rem;border-radius:4px;flex-shrink:0;}
+.donation-lead{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.6;}
+.donation-bar-full{margin:1.2rem 0 .8rem;}
+.donation-bar-track-full{height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden;display:flex;}
+.donation-segment{height:100%;}
+.donation-segment.transport{background:var(--brown-light);}
+.donation-segment.network{background:#7BC67E;}
+.donation-segment.ops{background:rgba(255,255,255,.3);}
+.donation-legend{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.7rem;}
+.donation-legend-item{display:flex;align-items:flex-start;gap:.5rem;}
+.donation-legend-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;margin-top:.3rem;}
+.donation-legend-dot.transport{background:var(--brown-light);}
+.donation-legend-dot.network{background:#7BC67E;}
+.donation-legend-dot.ops{background:rgba(255,255,255,.3);}
+.donation-legend-name{font-size:.75rem;font-weight:700;color:var(--white);}
+.donation-legend-pct{font-size:.72rem;color:var(--brown-light);margin-left:.3rem;}
+.donation-legend-desc{font-size:.68rem;color:rgba(255,255,255,.4);line-height:1.55;margin-top:.1rem;}
+.donation-note{font-size:.85rem;color:rgba(255,255,255,.28);font-style:italic;margin-top:.9rem;border-top:1px solid rgba(255,255,255,.05);padding-top:.65rem;}
+
+/* ── 4. OUR WORK ── */
+#home-work{background:var(--white);padding:5rem 5rem;}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2.5rem 0 2rem;}
+.work-card{background:var(--cream);border-radius:10px;padding:2rem;border-top:3px solid var(--brown-light);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;gap:.6rem;}
+.work-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(90,50,20,.12);}
+.work-card.core{border-top-color:var(--brown-dark);}
+.work-card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--brown-dark);line-height:1.3;}
+.work-card-subtitle{font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--brown-light);}
+.work-card-title-en{font-size:.72rem;font-weight:700;letter-spacing:.04em;color:var(--brown);}
+.work-card-body{font-size:.84rem;line-height:1.82;color:var(--gray);flex:1;}
+.work-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem;}
+.work-tag{font-size:.68rem;padding:.18rem .6rem;background:rgba(139,94,60,.08);border:1px solid rgba(139,94,60,.2);border-radius:10px;color:var(--brown);font-weight:700;}
+.work-card-cta{margin-top:.6rem;}
+.work-card-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-weight:700;color:var(--brown-dark);text-decoration:none;border-bottom:1.5px solid var(--brown-light);padding-bottom:.1rem;transition:gap .2s,color .2s;}
+.work-card-link:hover{gap:.6rem;color:var(--brown);}
+.work-phase-badge{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--brown-dark);color:var(--white);padding:.22rem .75rem;border-radius:2px;}
+.work-phase-next{margin-top:1.8rem;}
+.work-phase-next-inner{background:var(--black);border-radius:10px;padding:1.8rem 2.2rem;display:flex;align-items:center;gap:2.5rem;border-left:3px solid var(--brown);}
+.work-phase-next-label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--brown-light);white-space:nowrap;flex-shrink:0;}
+.work-phase-next-text{font-size:.84rem;line-height:1.78;color:rgba(255,255,255,.6);flex:1;margin:0;}
+.work-phase-next-link{flex-shrink:0;font-size:.8rem;font-weight:700;color:var(--brown-light);text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(196,149,106,.4);padding-bottom:.1rem;transition:color .2s;}
+.work-phase-next-link:hover{color:var(--white);}
+
+/* ── 5. FINAL CTA ── */
+#home-cta{background:var(--brown-dark);padding:5rem 5rem;text-align:center;position:relative;overflow:hidden;}
+#home-cta::before{content:'🐾';position:absolute;font-size:18rem;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.cta-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--brown-light);margin-bottom:1rem;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--white);line-height:1.25;margin-bottom:.8rem;}
+.cta-title em{font-style:italic;color:var(--brown-light);}
+.cta-sub{font-size:.95rem;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 2.5rem;line-height:1.78;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.cta-btn-main{padding:1.1rem 3rem;background:var(--brown-light);color:var(--white);text-decoration:none;font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:4px;transition:all .25s;}
+.cta-btn-main:hover{background:#d4a56a;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.25);}
+.cta-btn-sub{padding:1.1rem 2rem;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);text-decoration:none;font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:4px;transition:all .25s;}
+.cta-btn-sub:hover{border-color:var(--white);color:var(--white);}
+
+/* FOOTER */
+footer{background:var(--black);color:rgba(255,255,255,.5);padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);font-weight:700;}
+.footer-links{display:flex;gap:1.6rem;}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.75rem;transition:color .2s;}
+.footer-links a:hover{color:var(--brown-light);}
+.footer-copy{font-size:.72rem;}
+
+/* RESPONSIVE */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px 4px;background:none;border:none;flex-shrink:0;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+@media(max-width:900px){
+  nav{padding:.9rem 1.4rem;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
+  
+  section{padding:3.5rem 1.8rem;}
+  #hero{grid-template-columns:1fr;}
+  .hero-image-col{display:none;}
+  .hero-content{padding:6rem 2rem 4rem;}
+  .hero-dots{left:2rem;}
+  .hero-badge{display:none;}
+  .hi-pair-main{grid-template-columns:1fr;gap:1rem;}
+  .hi-center-arrow{transform:rotate(90deg);}
+  .rm-phases,.work-grid{grid-template-columns:1fr;}
+  .work-phase-next-inner{flex-direction:column;gap:1rem;align-items:flex-start;}
+  footer{flex-direction:column;text-align:center;padding:2rem;}
+  #home-issues{padding:3.5rem 1.8rem;}
+  #home-roadmap{padding:3.5rem 1.8rem;}
+  #home-work{padding:3.5rem 1.8rem;}
+  #home-cta{padding:3.5rem 1.8rem;}
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- NAV -->
+<nav id="navbar">
+  <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="#hero" class="nav-logo"><img src="images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan" style="height:36px;width:auto;vertical-align:middle;"><span style="margin-left:.5rem;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);">Beagle Rehoming Japan</span></a>
+  <ul class="nav-links">
+    <li><a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues &amp; Mission</span></a></li>
+    <li><a href="about.html"><span class="ja">団体について</span><span class="en">About</span></a></li>
+    <li><a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a></li>
+    <li><a href="news.html"><span class="ja">ニュース</span><span class="en">News</span></a></li>
+    <li><a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a></li>
+    <li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span><span class="en">Donate (Coming Soon)</span></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- ===== 1. HERO ===== -->
+<section id="hero">
+  <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active" style="background-image:url('images/slides/IMG_20250505_194407.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/slides/IMG_20250825_080118.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/slides/IMG20260102091744_01.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/slides/IMG20260307082334.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/slides/IMG_3843.jpg')"></div>
+    </div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="ja">研究ビーグルの里親募集 · 日本全国</span>
+      <span class="en">Research Beagle Rehoming · Japan</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="ja">ビーグルたちに、<em>新しい未来を。</em>
+        <span class="hero-en-sub">A new future for former laboratory beagles.</span>
+      </span>
+      <span class="en">A new future for <em>former laboratory beagles.</em>
+      </span>
+    </h1>
+    <p class="hero-sub" id="hero-sub-available">
+      <span class="ja">多くの実験動物は、その役割を終えた後の行き場が十分に確保されていません。私たちはリホーミング(新しい家庭へつなぐ取り組み)を通じて、その命が"その先"へ進めるよう支えます。</span>
+      <span class="en">Many laboratory animals lack clear pathways after their role in research ends. Through rehoming (placing animals into new homes), we help them move forward to life beyond research.</span>
+    </p>
+    <p class="hero-sub" id="hero-sub-unavailable" style="display:none;">
+      <span class="ja">多くの実験動物は、その役割を終えた後の行き場が十分に確保されていません。私たちはリホーミング(新しい家庭へつなぐ取り組み)を通じて、その命が"その先"へ進めるよう支えます。</span>
+      <span class="en">Many laboratory animals lack clear pathways after their role in research ends. Through rehoming (placing animals into new homes), we help them move forward to life beyond research.</span>
+    </p>
+    <div class="hero-cta" id="hero-cta-available">
+      <a href="adopt.html" class="btn-primary"><span class="ja">里親になる</span><span class="en">Adopt</span></a>
+      <a href="#home-cta" class="btn-outline hero-btn-donate"><span class="ja">支援する（準備中）</span><span class="en">Donate</span></a>
+    </div>
+    <div class="hero-cta" id="hero-cta-unavailable" style="display:none;">
+      <a href="#home-issues" class="btn-primary"><span class="ja">活動を知る</span><span class="en">Learn More</span></a>
+      <a href="#home-cta" class="btn-outline hero-btn-donate"><span class="ja">支援する（準備中）</span><span class="en">Donate</span></a>
+    </div>
+  </div>
+  
+  <div class="hero-dots" id="heroDots">
+      <span class="dot active" onclick="goSlide(0)"></span>
+      <span class="dot" onclick="goSlide(1)"></span>
+      <span class="dot" onclick="goSlide(2)"></span>
+      <span class="dot" onclick="goSlide(3)"></span>
+      <span class="dot" onclick="goSlide(4)"></span>
+      <span class="dot" onclick="goSlide(5)"></span>
+    </div>
+  <div class="hero-badge">
+    <div class="num">39</div>
+    <div class="lbl"><span class="ja">累計保護頭数</span><span class="en">Total Rehomed</span></div>
+  </div>
+</section>
+
+<!-- ===== 2. ISSUES & IMPACT ===== -->
+<section id="home-issues" class="reveal">
+  <div class="section-label"><span class="ja">課題とインパクト</span><span class="en">Issues &amp; Impact</span></div>
+  <h2 class="section-title"><span class="ja">動物実験の、<em>その先へ。</em></span><span class="en">Beyond <em>the lab.</em></span></h2>
+  <div class="divider"></div>
+  <div class="hi-pair-main">
+    <div class="hi-main-card issue reveal">
+      <div class="hi-main-tag">Issue</div>
+      <div class="hi-main-head">
+        <span class="ja">日本では年間約3,000頭のビーグルが研究に使用されています。創薬・医療の発展において動物実験はいまも重要な役割を担っていますが、その役割を終えた後の行き場は、十分に整備されていません。</span>
+        <span class="en">In Japan, approximately 3,000 beagles are used in research each year. While animal research continues to play a vital role in medicine and science, clear pathways for these animals after their role ends remain largely absent.</span>
+      </div>
+    </div>
+    <div class="hi-center-arrow">→</div>
+    <div class="hi-main-card impact reveal">
+      <div class="hi-main-tag">Impact</div>
+      <div class="hi-main-head">
+        <span class="ja">私たちは、その行き場をつくります。<br>    実験動物に関わる企業・獣医師・研究機関、そして里親候補となる方々と連携し、命の"その先"を支えるネットワークをつくっています。<br>    役割を終えたビーグルが、次の家族のもとへ。その橋渡しが私たちの使命です。</span>
+        <span class="en">We support former research beagles in moving forward to a safe and loving life. By expanding rehoming as a social practice, we build a system where no beagle is left without a future.</span>
+      </div>
+    </div>
+  </div>
+  <div class="hi-learn-more">
+    <a href="issues.html" class="hi-learn-link">
+      <span class="ja">課題と活動の意義をもっと知る</span>
+      <span class="en">Learn more about the issues &amp; our impact</span>
+      &nbsp;→
+    </a>
+  </div>
+</section>
+
+<!-- ===== 3. ROADMAP ===== -->
+<section id="home-roadmap" class="reveal">
+  <div class="rm-now">
+    <span class="rm-dot"></span>
+    NOW ACTIVE &nbsp;·&nbsp; <span class="ja">Phase 1 進行中</span><span class="en">Phase 1 Active</span>
+  </div>
+  <div class="section-label"><span class="ja">活動ロードマップ</span><span class="en">Our Roadmap</span></div>
+  <h2 class="section-title"><span class="ja">段階的に、<em>社会を変える</em></span><span class="en">Step by step, <em>changing society</em></span></h2>
+  <div class="divider"></div>
+  <p class="section-body">
+    <span class="ja">私たちは3つのフェーズで活動を拡大し、ビーグルのリホーミングを社会の仕組みとして根付かせます。</span>
+    <span class="en">We expand in three phases — building toward a society where rehoming is the norm.</span>
+  </p>
+  <div class="rm-phases">
+    <div class="rm-phase current reveal">
+      <div class="rm-ptag">PHASE 1 · NOW</div>
+      <div class="rm-ptitle"><span class="ja">基盤づくり<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Foundation</span></span><span class="en">Foundation</span></div>
+      <div class="rm-psub"><span class="ja">小さく始め、確実に命をつなぐ</span><span class="en">Start small, save lives reliably</span></div>
+      <p class="rm-pdesc"><span class="ja">実験を終えたビーグルのリホーミングを開始し、持続可能な活動の基盤を構築します。</span><span class="en">Begin rehoming former laboratory beagles and build a sustainable foundation.</span></p>
+      <div class="rm-metric-row">
+        <div class="rm-metric-mini"><div class="val"><span class="ja">10頭以下</span><span class="en">≤10 dogs</span></div><div class="sub"><span class="ja">/ 年</span><span class="en">/ yr</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">¥100万以下</span><span class="en">under $10,000</span></div><div class="sub"><span class="ja">年間目安</span><span class="en">annual est.</span></div></div>
+      </div>
+    </div>
+    <div class="rm-phase reveal">
+      <div class="rm-ptag">PHASE 2</div>
+      <div class="rm-ptitle"><span class="ja">輪を広げる<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Scale</span></span><span class="en">Scale</span></div>
+      <div class="rm-psub"><span class="ja">支援の輪を広げ、より多くの命へ</span><span class="en">Expand support, reach more lives</span></div>
+      <p class="rm-pdesc"><span class="ja">規模とネットワークを拡大し、より多くのビーグルを支援できる体制を構築します。</span><span class="en">Scale operations and expand network to support more beagles.</span></p>
+      <div class="rm-metric-row">
+        <div class="rm-metric-mini"><div class="val"><span class="ja">10–20頭</span><span class="en">10–20</span></div><div class="sub"><span class="ja">/ 年</span><span class="en">/ yr</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">¥100–300万</span><span class="en">$10,000–$30,000</span></div><div class="sub"><span class="ja">年間目安</span><span class="en">annual est.</span></div></div>
+      </div>
+    </div>
+    <div class="rm-phase reveal">
+      <div class="rm-ptag">PHASE 3</div>
+      <div class="rm-ptitle"><span class="ja">社会を変える<span class="rm-ptitle-sep"> / </span><span class="rm-ptitle-en">Impact</span></span><span class="en">Impact</span></div>
+      <div class="rm-psub"><span class="ja">仕組みとして社会に根付かせる</span><span class="en">Embed rehoming into society</span></div>
+      <p class="rm-pdesc"><span class="ja">リホーミングを一時的な活動にとどめず、社会に定着する仕組みとして確立します。</span><span class="en">Establish rehoming as a sustainable system embedded in society.</span></p>
+      <div class="rm-metric-row">
+        <div class="rm-metric-mini"><div class="val"><span class="ja">20頭以上</span><span class="en">20+</span></div><div class="sub"><span class="ja">/ 年</span><span class="en">/ yr</span></div></div>
+        <div class="rm-metric-mini"><div class="val"><span class="ja">¥300万以上</span><span class="en">$30,000+</span></div><div class="sub"><span class="ja">年間目安</span><span class="en">annual est.</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation usage -->
+  <div class="donation-section">
+    <div class="donation-header">
+      <span class="donation-phase-tag">Phase 1</span>
+      <p class="donation-lead">
+        <span class="ja">現在の寄付金は、主に保護・譲渡活動の基盤づくりに活用されます。</span>
+        <span class="en">Donations currently support the foundation of our rescue and rehoming activities.</span>
+      </p>
+    </div>
+    <div class="donation-bar-full">
+      <div class="donation-bar-track-full">
+        <div class="donation-segment transport" style="width:80%"></div>
+        <div class="donation-segment network" style="width:10%"></div>
+        <div class="donation-segment ops" style="width:10%"></div>
+      </div>
+    </div>
+    <div class="donation-legend">
+      <div class="donation-legend-item">
+        <div class="donation-legend-dot transport"></div>
+        <div>
+          <div><span class="donation-legend-name"><span class="ja">引き取り費用・輸送費</span><span class="en">Pickup &amp; Transport</span></span><span class="donation-legend-pct">80%</span></div>
+          <div class="donation-legend-desc"><span class="ja">研究機関からの引き取り・移動にかかる費用（約5〜10万円／匹）</span><span class="en">Pickup and transport from research facilities (approx. $500–$1,000/dog)</span></div>
+        </div>
+      </div>
+      <div class="donation-legend-item">
+        <div class="donation-legend-dot network"></div>
+        <div>
+          <div><span class="donation-legend-name"><span class="ja">里親ネットワーク</span><span class="en">Community &amp; Support</span></span><span class="donation-legend-pct">10%</span></div>
+          <div class="donation-legend-desc"><span class="ja">里親同士の交流・サポート・啓発イベントの開催</span><span class="en">Adopter support, events, and awareness activities</span></div>
+        </div>
+      </div>
+      <div class="donation-legend-item">
+        <div class="donation-legend-dot ops"></div>
+        <div>
+          <div><span class="donation-legend-name"><span class="ja">団体運営費</span><span class="en">Operations</span></span><span class="donation-legend-pct">10%</span></div>
+          <div class="donation-legend-desc"><span class="ja">最低限の運営・広報・システム維持費用</span><span class="en">Basic operational and communication costs</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="donation-note">
+      <span class="ja">※寄付金の使用割合は活動状況に応じて変動する場合があります。</span>
+      <span class="en">Allocation may vary depending on operational needs.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. OUR WORK ===== -->
+<section id="home-work" class="reveal">
+  <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;">
+    <div class="section-label" style="margin:0;"><span class="ja">私たちの活動</span><span class="en">What We Do</span></div>
+    <span class="work-phase-badge">Phase 1</span>
+  </div>
+  <h2 class="section-title"><span class="ja">現在、<em>3つの活動</em>を中心に</span><span class="en">Three core <em>activities</em></span></h2>
+  <div class="divider"></div>
+  <p class="section-body">
+    <span class="ja">私たちは現在Phase 1として、実験を終えたビーグルたちが新しい生活へと進むために、3つの活動を中心に取り組んでいます。</span>
+    <span class="en">We are currently in Phase 1, focusing on three core activities to support beagles in transitioning to life beyond research.</span>
+  </p>
+  <div class="work-grid">
+    <div class="work-card core reveal">
+      <div class="work-card-title"><span class="ja">里親マッチング</span><span class="en">Adoption Matching</span></div>
+      <div class="work-card-subtitle">Beagle Rehoming Program</div>
+      <div class="work-card-title-en">Adoption Matching</div>
+      <p class="work-card-body">
+        <span class="ja">保護されたビーグルたちと新しい家族をつなぐ活動です。それぞれの個性や生活環境に合わせたマッチングを行い、安心できる譲渡を目指します。</span>
+        <span class="en">We connect rescued beagles with suitable families, ensuring a safe and thoughtful transition into their new homes.</span>
+      </p>
+      <div class="work-card-cta">
+        <a href="adopt.html" class="work-card-link" id="work-cta-adopt">
+          <span class="ja">里親募集を見る →</span><span class="en">View available beagles →</span>
+        </a>
+        <a href="stories.html" class="work-card-link" id="work-cta-stories" style="display:none;">
+          <span class="ja">これまでの保護事例を見る →</span><span class="en">Read our rehoming stories →</span>
+        </a>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="work-card-title"><span class="ja">里親ネットワークの構築</span><span class="en">Community &amp; Support Network</span></div>
+      <div class="work-card-subtitle">Ohana Network</div>
+      <div class="work-card-title-en">Community &amp; Support Network</div>
+      <p class="work-card-body">
+        <span class="ja">里親同士の交流や情報共有の場をつくり、継続的なサポートを行います。イベントや啓発活動を通じて、実験動物ビーグルへの理解を広げます。</span>
+        <span class="en">We build a network of adopters and supporters, providing ongoing guidance and opportunities to learn about laboratory beagles.</span>
+      </p>
+      <div class="work-card-cta">
+        <a href="news.html" class="work-card-link">
+          <span class="ja">イベント・ニュースを見る →</span>
+          <span class="en">View events &amp; news →</span>
+        </a>
+      </div>
+    </div>
+    <div class="work-card reveal">
+      <div class="work-card-title"><span class="ja">啓発・広報活動</span><span class="en">Awareness &amp; Advocacy</span></div>
+      <div class="work-card-subtitle">Beyond Research</div>
+      <div class="work-card-title-en">Awareness &amp; Advocacy</div>
+      <p class="work-card-body">
+        <span class="ja">企業・研究機関・社会・行政に対してリホーミングの重要性を発信し、その理解と実践の広がりを目指します。</span>
+        <span class="en">We engage with companies, research institutions, and society to promote awareness and adoption of rehoming practices.</span>
+      </p>
+      <div class="work-card-cta">
+        <a href="scientific.html" class="work-card-link">
+          <span class="ja">Scientific Discussion <span style="font-weight:400;font-size:.75rem;color:var(--gray);">（研究施設・IACUC・行政向け）</span> →</span>
+          <span class="en">Scientific Discussion <span style="font-weight:400;font-size:.75rem;color:var(--gray);">(for research facilities, IACUCs &amp; policymakers)</span> →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="work-phase-next reveal">
+    <div class="work-phase-next-inner">
+      <div class="work-phase-next-label">Phase 2 &amp; Beyond</div>
+      <p class="work-phase-next-text">
+        <span class="ja">活動の拡大に伴い、<strong style="color:var(--brown-light);">実験動物の引き取りに特化した専用施設の運営</strong>・3Rs研究支援・国際連携など、より包括的な支援体制を目指します。</span>
+        <span class="en">As we scale, we plan to expand into <strong style="color:var(--brown-light);">operating a dedicated facility for receiving former laboratory animals</strong>, 3Rs research support, international collaboration, and more.</span>
+      </p>
+      <a href="#" onclick="showComingSoon(event)" class="work-phase-next-link">
+        <span class="ja">将来の展開を見る（準備中） →</span>
+        <span class="en">See our future vision (Coming Soon) →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. FINAL CTA ===== -->
+<section id="home-cta" class="reveal">
+  <div class="cta-eyebrow"><span class="ja">あなたの力が必要です</span><span class="en">We need your support</span></div>
+  <h2 class="cta-title">
+    <span class="ja">あなたの支援が、<em>この変化を実現します。</em></span>
+    <span class="en">Your support <em>makes this change possible.</em></span>
+  </h2>
+  <p class="cta-sub">
+    <span class="ja">Beagle Rehoming Japanは主にボランティアによって運営されています。いただいたご支援は、動物のケア・輸送・リホーミング活動のために使われます。</span>
+    <span class="en">Beagle Rehoming Japan is primarily volunteer-driven. Donations are used to support animal care, transport, and our rehoming activities.</span>
+  </p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="cta-btn-main"><span class="ja">寄付する</span><span class="en">Donate Now</span></a>
+    <a href="contact.html" class="cta-btn-sub"><span class="ja">お問い合わせ</span><span class="en">Get in Touch</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Beagle Rehoming Japan</div>
+  <div class="footer-links">
+    <a href="#home-issues"><span class="ja">課題と変化</span><span class="en">Issues</span></a>
+    <a href="#home-roadmap"><span class="ja">ロードマップ</span><span class="en">Roadmap</span></a>
+    <a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a>
+    <a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+  </div>
+  <div class="footer-copy">© 2025 Beagle Rehoming Japan. All Rights Reserved.</div>
+</footer>
+
+<script>
+// Adoption flag
+const ADOPTION_AVAILABLE = true;
+(function applyAdoptionStatus() {
+  var avSub    = document.getElementById('hero-sub-available');
+  var unSub    = document.getElementById('hero-sub-unavailable');
+  var avCta    = document.getElementById('hero-cta-available');
+  var unCta    = document.getElementById('hero-cta-unavailable');
+  var adoptLnk = document.getElementById('work-cta-adopt');
+  var storLnk  = document.getElementById('work-cta-stories');
+  if (ADOPTION_AVAILABLE) {
+    avSub.style.display=''; unSub.style.display='none';
+    avCta.style.display=''; unCta.style.display='none';
+    if(adoptLnk) adoptLnk.style.display='';
+    if(storLnk)  storLnk.style.display='none';
+  } else {
+    avSub.style.display='none'; unSub.style.display='';
+    avCta.style.display='none'; unCta.style.display='';
+    if(adoptLnk) adoptLnk.style.display='none';
+    if(storLnk)  storLnk.style.display='';
+  }
+})();
+
+// Lang
+function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.getElementById('btn-ja').classList.toggle('active',l==='ja');document.getElementById('btn-en').classList.toggle('active',l==='en');updateNavLang(l);var u=new URL(window.location.href);if(l==='en'){u.searchParams.set('lang','en');}else{u.searchParams.delete('lang');}history.replaceState(null,'',u.toString());}
+
+// Update nav links with lang param
+function updateNavLang(l){
+  document.querySelectorAll('.nav-links a[href]').forEach(function(a){
+    var href = a.getAttribute('href');
+    if(href && href !== '#' && !href.startsWith('http')){
+      a.href = href.split('?')[0] + (l==='en' ? '?lang=en' : '');
+    }
+  });
+}
+// Auto detect lang from URL
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  if(p.get('lang')==='en'){setLang('en');updateNavLang('en');}
+})();
+// Nav scroll
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);});
+
+// Reveal
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible');},i*80);});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+// Mobile menu
+
+// Hero slideshow
+var curSlide=0;
+var heroSlides=document.getElementById('heroSlides'),heroDots=document.getElementById('heroDots');
+
+function goSlide(i){
+  document.querySelectorAll('.hero-slide')[curSlide].classList.remove('active');
+  document.querySelectorAll('.dot')[curSlide].classList.remove('active');
+  curSlide=i;
+  document.querySelectorAll('.hero-slide')[curSlide].classList.add('active');
+  document.querySelectorAll('.dot')[curSlide].classList.add('active');
+  clearInterval(slideT);
+  slideT=setInterval(function(){goSlide((curSlide+1)%6);},5000);
+}
+slideT=setInterval(function(){goSlide((curSlide+1)%6);},5000);
+
+function toggleMenu(){var nav=document.querySelector('.nav-links');var btn=document.getElementById('hamburger');nav.classList.toggle('open');btn.classList.toggle('open');}
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');document.getElementById('hamburger').classList.remove('open');});});
+if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+</script>
+</body>
+</html>
