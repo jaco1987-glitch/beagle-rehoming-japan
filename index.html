@@ -1,239 +1,220 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beagle Rehoming Japan</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-:root{
---white:#FDFAF6;--cream:#F5EFE6;--brown-light:#C4956A;--brown:#8B5E3C;
---brown-dark:#5C3D1E;--black:#1A1008;--gray:#6B6058;--gray-light:#D9CFC4;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beagle Rehoming Japan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --white:#FDFAF6;--cream:#F5EFE6;--brown-light:#C4956A;--brown:#8B5E3C;
+      --brown-dark:#5C3D1E;--black:#1A1008;--gray:#6B6058;--gray-light:#D9CFC4;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);overflow-x:hidden;}
 
-/* LANG */
-.lang-toggle{display:flex;border:1.5px solid var(--brown);border-radius:4px;overflow:hidden;background:var(--white);flex-shrink:0;}
-.lang-toggle button{padding:.32rem .75rem;border:none;background:transparent;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--brown);}
-.lang-toggle button.active{background:var(--brown);color:var(--white);}
-.ja{display:block;}.en{display:none;}
-body.lang-en .ja{display:none;}body.lang-en .en{display:block;}
-span.ja{display:inline;}span.en{display:none;}
-body.lang-en span.ja{display:none;}body.lang-en span.en{display:inline;}
+    .lang-toggle{display:flex;border:1.5px solid var(--brown);border-radius:4px;overflow:hidden;background:var(--white);flex-shrink:0;}
+    .lang-toggle button{padding:.32rem .75rem;border:none;background:transparent;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--brown);}
+    .lang-toggle button.active{background:var(--brown);color:var(--white);}
+    .ja{display:block;}.en{display:none;}
+    body.lang-en .ja{display:none;}body.lang-en .en{display:block;}
+    span.ja{display:inline;}span.en{display:none;}
+    body.lang-en span.ja{display:none;}body.lang-en span.en{display:inline;}
 
-/* NAV */
-.nav-logo-text{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);}
-.nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
-.nav-links{display:flex;gap:1.6rem;list-style:none;}
-.nav-links a{text-decoration:none;color:var(--gray);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--brown);}
-nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(253,250,246,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-light);}
-.nav-scroll{box-shadow:0 2px 20px rgba(0,0,0,.1);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px 4px;background:none;border:none;flex-shrink:0;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
+    .nav-logo-text{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--brown-dark);}
+    .nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(253,250,246,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-light);}
+    .nav-links{display:flex;gap:1.6rem;list-style:none;}
+    .nav-links a{text-decoration:none;color:var(--gray);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--brown);}
 
-/* HERO */
-.hero{background:var(--black);color:var(--white);padding:4rem 5rem 3rem;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;}
-.hero::before{content:'';position:absolute;inset:0;background:url('images/beagle-hero-bg.jpg') center/cover;opacity:.15;}
-.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(92,61,30,.3) 0%,transparent 60%);}
-.hero-inner{position:relative;z-index:1;max-width:720px;}
-.hero-tag{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-light);border:1px solid rgba(196,149,106,.4);padding:.25rem .8rem;border-radius:2px;display:inline-block;margin-bottom:1rem;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);line-height:1.2;margin-bottom:.8rem;}
-.hero h1 em{font-style:italic;color:var(--brown-light);}
-.hero p{font-size:.95rem;line-height:1.85;color:rgba(255,255,255,.6);max-width:580px;margin-bottom:2rem;}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-primary{padding:.85rem 2rem;background:var(--brown-light);color:var(--white);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
-.btn-primary:hover{background:#d4a56a;transform:translateY(-2px);}
-.btn-outline{padding:.85rem 2rem;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
-.btn-outline:hover{border-color:var(--white);color:var(--white);}
+    .hero{background:var(--black);color:var(--white);padding:4rem 5rem 3rem;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(92,61,30,.3) 0%,transparent 60%);}
+    .hero-inner{position:relative;z-index:1;max-width:720px;}
+    .hero-tag{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-light);border:1px solid rgba(196,149,106,.4);padding:.25rem .8rem;border-radius:2px;display:inline-block;margin-bottom:1rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);line-height:1.2;margin-bottom:.8rem;}
+    .hero h1 em{font-style:italic;color:var(--brown-light);}
+    .hero p{font-size:.95rem;line-height:1.85;color:rgba(255,255,255,.6);max-width:580px;margin-bottom:2rem;}
+    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{padding:.85rem 2rem;background:var(--brown-light);color:var(--white);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+    .btn-primary:hover{background:#d4a56a;transform:translateY(-2px);}
+    .btn-outline{padding:.85rem 2rem;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8);text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .25s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--white);color:var(--white);}
 
-/* 以下のCSSは省略して簡単なバージョンにします */
+    /* BEAGLE GALLERY */
+    .rescued-beagles{padding:4rem 0;background:var(--cream);}
+    .rescued-beagles h2{text-align:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--brown-dark);margin-bottom:1rem;}
+    .rescued-beagles > .container > p{text-align:center;color:var(--gray);margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto;}
+    .beagle-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
+    .gallery-item{text-align:center;background:var(--white);padding:1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .3s;}
+    .gallery-item:hover{transform:translateY(-4px);}
+    .gallery-item img{width:100%;height:200px;object-fit:cover;border-radius:4px;margin-bottom:1rem;}
+    .gallery-item p{font-weight:600;color:var(--brown);}
 
-@media(max-width:1280px){
-.nav-links{display:none;}
-.hamburger{display:flex;}
-nav{padding:.9rem 1.2rem;}
-.hero{padding:5.5rem 1.8rem 3rem;}
-}
-</style>
-</head>
+    /* STATISTICS */
+    .statistics{padding:4rem 0;background:var(--white);}
+    .statistics h2{text-align:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--brown-dark);margin-bottom:3rem;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
+    .stat-item{text-align:center;padding:2rem;}
+    .stat-item h3{font-size:3rem;font-weight:700;color:var(--brown-light);margin-bottom:.5rem;}
+    .stat-item p{color:var(--gray);font-weight:600;}
 
-<body>
-<nav>
-<button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
-<span></span><span></span><span></span>
-</button>
-<a href="#hero" class="nav-logo">
-<img src="images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan" style="height:36px;width:auto;">
-<span class="nav-logo-text">Beagle Rehoming Japan</span>
-</a>
-<ul class="nav-links">
-<li><a href="#hero" class="active"><span class="ja">TOP</span><span class="en">TOP</span></a></li>
-<li><a href="issues.html"><span class="ja">課題と意義</span><span class="en">Issues & Mission</span></a></li>
-<li><a href="about.html"><span class="ja">団体について</span><span class="en">About</span></a></li>
-<li><a href="adopt.html"><span class="ja">里親募集</span><span class="en">Adopt</span></a></li>
-<li><a href="news.html"><span class="ja">ニュース</span><span class="en">News</span></a></li>
-<li><a href="contact.html"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a></li>
-<li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span><span class="en">Donate (Coming Soon)</span></a></li>
-</ul>
-<div class="lang-toggle">
-<button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>
-<button id="btn-en" onclick="setLang('en')">EN</button>
-</div>
-</nav>
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
 
-<div class="hero" id="hero">
-<div class="hero-inner">
-<div class="hero-tag">
-<span class="ja">実験動物のリホーミング</span>
-<span class="en">Laboratory Animal Rehoming
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px 4px;background:none;border:none;flex-shrink:0;}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--brown-dark);transition:all .3s;}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
 
-<!-- RESCUED BEAGLES SECTION -->
-<section class="rescued-beagles" id="rescued-beagles">
-<div class="container">
-<h2><span class="ja">救出されたビーグルたち</span><span class="en">Rescued Beagles</span></h2>
-<p><span class="ja">実験を終えた後、新しい家族を見つけたビーグルたちの写真です。</span><span class="en">Photos of beagles who found new families after laboratory life.</span></p>
-<div class="beagle-gallery">
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル1" loading="lazy">
-<p><span class="ja">ハナちゃん（3歳）</span>span><span class="en">Hana (3 years old)</span>span></p>
-</div>
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル2" loading="lazy">
-<p><span class="ja">ポチくん（4歳）</span>span><span class="en">Pochi (4 years old)</span>span></p>
-</div>
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル3" loading="lazy">
-<p><span class="ja">ミルクちゃん（2歳）</span>span><span class="en">Milk (2 years old)</span>span></p>
-</div>
-<div class="gallery-item">
-<img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル4" loading="lazy">
-<p><span class="ja">チョコくん（5歳）</span>span><span class="en">Choco (5 years old)</span>span></p>
-</div>
-</div>
-</div>
-</section>section>
+    @media(max-width:1280px){
+      .nav-links{display:none;}
+      .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
+      .hamburger{display:flex;}
+      nav{padding:.9rem 1.2rem;}
+      .hero{padding:5.5rem 1.8rem 3rem;}
+      .beagle-gallery{grid-template-columns:1fr;}
+      .stats-grid{grid-template-columns:repeat(2,1fr);}
+      .rescued-beagles h2,.statistics h2{font-size:2rem;}
+    }
+    </style>
+  </head>
 
-<!-- STATISTICS SECTION -->
-<section class="statistics" id="statistics">
-<div class="container">
-<h2><span class="ja">活動実績</span><span class="en">Our Impact</span></h2>
-<div class="stats-grid">
-<div class="stat-item">
-<h3>39</h3>
-<p><span class="ja">これまでに救出</span>span><span class="en">Beagles Rescued</span>span></p>
-</div>
-<div class="stat-item">
-<h3>21</h3>
-<p><span class="ja">新しい家族が決定</span>span><span class="en">Found New Homes</span>span></p>
-</div>
-<div class="stat-item">
-<h3>4</h3>
-<p><span class="ja">現在里親募集中</span>span><span class="en">Seeking Adoption</span>span></p>
-</div>
-<div class="stat-item">
-<h3>100%</h3>
-<p><span class="ja">健康状態良好</span>span><span class="en">In Good Health</span>span></p>
-</div>
-</div>
-</div>
-</section>section>
-
-<!-- CALL TO ACTION SECTION -->
-<section class="home-cta" id="home-cta">
-<div class="container">
-<h2><span class="ja">あなたにできること</span><span class="en">How You Can Help</span></h2>
-<div class="cta-grid">
-<div class="cta-item">
-<h3><span class="ja">里親になる</span><span class="en">Adopt</span></h3>
-<p><span class="ja">元研究用ビーグルの里親になって、新しい人生をスタートさせませんか。</span>span><span class="en">Give a former laboratory beagle a loving home and a fresh start in life.</span>span></p>
-<a href="adopt.html" class="btn-primary"><span class="ja">詳細を見る</span><span class="en">Learn More</span></a>a>
-</div>
-<div class="cta-item">
-<h3><span class="ja">寄付をする</span><span class="en">Donate</span></h3>
-<p><span class="ja">医療費、食事、ケアにかかる費用をサポートしてください。</span>span><span class="en">Support medical care, food, and rehabilitation costs for rescued beagles.</span>span></p>
-<a href="#" class="btn-outline"><span class="ja">寄付する（準備中）</span><span class="en">Donate (Coming Soon)</span></a>a>
-</div>
-</div>
-
-  /* RESCUED BEAGLES SECTION */
-  .rescued-beagles{padding:4rem 0;background:var(--cream);}
-  .rescued-beagles h2{text-align:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--brown-dark);margin-bottom:1rem;}
-  .rescued-beagles > .container > p{text-align:center;color:var(--gray);margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto;}
-  .beagle-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
-  .gallery-item{text-align:center;background:var(--white);padding:1.5rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .3s;}
-  .gallery-item:hover{transform:translateY(-4px);}
-  .gallery-item img{width:100%;height:200px;object-fit:cover;border-radius:4px;margin-bottom:1rem;}
-  .gallery-item p{font-weight:600;color:var(--brown);}
-
-  /* STATISTICS SECTION */
-  .statistics{padding:4rem 0;background:var(--white);}
-  .statistics h2{text-align:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--brown-dark);margin-bottom:3rem;}
-  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
-  .stat-item{text-align:center;padding:2rem;}
-  .stat-item h3{font-size:3rem;font-weight:700;color:var(--brown-light);margin-bottom:.5rem;}
-  .stat-item p{color:var(--gray);font-weight:600;}
-
-  /* CALL TO ACTION SECTION */
-  .home-cta{padding:4rem 0;background:var(--black);color:var(--white);}
-  .home-cta h2{text-align:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--white);margin-bottom:3rem;}
-  .cta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:3rem;}
-  .cta-item{text-align:center;padding:2rem;}
-  .cta-item h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown-light);margin-bottom:1rem;}
-  .cta-item p{color:rgba(255,255,255,.7);margin-bottom:2rem;line-height:1.6;}
-  .cta-item .btn-primary,.cta-item .btn-outline{margin:0 auto;}
-
-  /* UTILITIES */
-  .container{max-width:1200
-  .beagle-gallery{grid-template-columns:1fr;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .cta-grid{grid-template-columns:1fr;}
-  .rescued-beagles h2,.statistics h2,.home-cta h2{font-size:2rem;}
-  px;margin:0 auto;padding:0 2rem;}
-
+  <body>
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>button>
+    <a href="#hero" class="nav-logo">
+    <img src="images/logo/Professional%20Minimalist%20Logo%20for%20Beagle%20NPO%20(2).png" alt="Beagle Rehoming Japan" style="height:36px;width:auto;">
+    <span class="nav-logo-text">Beagle Rehoming Japan</span>
+    </a>a>
+    <ul class="nav-links">
+    <li><a href="#hero" class="active"><span class="ja">TOP</span><span class="en">TOP</span></a>a></li>
+    <li><a href="issues.html"><span class="ja">課題と意義</span>span><span class="en">Issues & Mission</span>span></a>a></li>
+    <li><a href="about.html"><span class="ja">団体について</span>span><span class="en">About</span>span></a>a></li>
+    <li><a href="adopt.html"><span class="ja">里親募集</span>span><span class="en">Adopt</span>span></a>a></li>
+    <li><a href="news.html"><span class="ja">ニュース</span>span><span class="en">News</span>span></a>a></li>
+    <li><a href="contact.html"><span class="ja">お問い合わせ</span>span><span class="en">Contact</span>span></a>a></li>
+    <li><a href="#" class="btn-donate"><span class="ja">寄付（準備中）</span>span><span class="en">Donate (Coming Soon)</span>span></a>a></li>
+    </ul>ul>
+    <div class="lang-toggle">
+    <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>button>
+    </div>div>
+    </nav>
   
-</div>
-</section>section>
+  <div class="hero" id="hero">
+  <div class="hero-inner">
+  <div class="hero-tag">
+  <span class="ja">実験動物のリホーミング</span>
+  <span class="en">Laboratory Animal Rehoming</span>
+  </div>div>
+  <h1>
+    <span class="ja">あたらしい<em>はじまり</em>。</span>
+  <span class="en">A new <em>beginning</em>.</span>
+  </h1>
+  <p>
+    <span class="ja">元研究用ビーグルたちの新しい未来のために。</span>
+    <span class="en">A new future for former laboratory beagles.</span>
+  </p>
+    <div class="hero-cta">
+      <a href="adopt.html" class="btn-primary">
+        <span class="ja">里親になる</span>
+        <span class="en">Find a Beagle</span>
+      </a>a>
+      <a href="#rescued-beagles" class="btn-outline">
+        <span class="ja">ビーグルたちを見る</span>
+        <span class="en">Meet Our Beagles</span>
+      </a>a>
+    </div>div>
+  </div>div>
+  </div>div>
 
-</p></p></h2></span>
-</div>
-<h1>
-<span class="ja">あたらしい<em>はじまり</em>。</span>
-<span class="en">A new <em>beginning</em>.</span>
-</h1>
-<p>
-<span class="ja">元研究用ビーグルたちの新しい未来のために。</span>
-<span class="en">A new future for former laboratory beagles.</span>
-</p>
-<div class="hero-cta">
-<a href="adopt.html" class="btn-primary">
-<span class="ja">里親になる</span>
-<span class="en">Find a Beagle</span>
-</a>
-<a href="#home-cta" class="btn-outline">
-<span class="ja">支援・寄付をする</span>
-<span class="en">Support & Donate</span>
-</a>
-</div>
-</div>
-</div>
-
-<script>
-function setLang(l){
-document.body.classList.toggle('lang-en',l==='en');
-document.getElementById('btn-ja').classList.toggle('active',l==='ja');
-document.getElementById('btn-en').classList.toggle('active',l==='en');
-}
-function toggleMenu(){
-var nav=document.querySelector('.nav-links');
-var btn=document.getElementById('hamburger');
-nav.classList.toggle('open');
-btn.classList.toggle('open');
-}
-if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
-</script>
-</body>
-</html>
+    <section class="rescued-beagles" id="rescued-beagles">
+      <div class="container">
+        <h2><span class="ja">救出されたビーグルたち</span><span class="en">Rescued Beagles</span></h2>
+        <p><span class="ja">実験を終えた後、新しい家族を見つけたビーグルたちの写真です。</span><span class="en">Photos of beagles who found new families after laboratory life.</span></p>
+      <div class="beagle-gallery">
+      <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1551717743-49959800b1f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル1" loading="lazy">
+      <p><span class="ja">ハナちゃん（3歳）</span><span class="en">Hana (3 years old)</span></p>
+      </div>div>
+      <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル2" loading="lazy">
+      <p><span class="ja">ポチくん（4歳）</span><span class="en">Pochi (4 years old)</span></p>
+      </div>div>
+      <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル3" loading="lazy">
+      <p><span class="ja">ミルクちゃん（2歳）</span><span class="en">Milk (2 years old)</span></p>
+      </div>div>
+      <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300&q=80" alt="救出されたビーグル4" loading="lazy">
+      <p><span class="ja">チョコくん（5歳）</span><span class="en">Choco (5 years old)</span></p>
+      </div>div>
+      </div>div>
+      </div>div>
+    </section>section>
+  
+  <section class="statistics" id="statistics">
+  <div class="container">
+  <h2><span class="ja">活動実績</span><span class="en">Our Impact</span></h2>
+  <div class="stats-grid">
+  <div class="stat-item">
+  <h3>39</h3>
+  <p><span class="ja">これまでに救出</span><span class="en">Beagles Rescued</span></p>
+  </div>div>
+  <div class="stat-item">
+  <h3>21</h3>
+  <p><span class="ja">新しい家族が決定</span><span class="en">Found New Homes</span></p>
+  </div>div>
+  <div class="stat-item">
+  <h3>4</h3>
+  <p><span class="ja">現在里親募集中</span><span class="en">Seeking Adoption</span></p>
+  </div>div>
+  <div class="stat-item">
+  <h3>100%</h3>
+  <p><span class="ja">健康状態良好</span><span class="en">In Good Health</span></p>
+  </div>div>
+  </div>div>
+  </div>div>
+  </section>section>
+  
+  <script>
+    function setLang(l){
+      document.body.classList.toggle('lang-en',l==='en');
+      document.getElementById('btn-ja').classList.toggle('active',l==='ja');
+      document.getElementById('btn-en').classList.toggle('active',l==='en');
+      updateNavLang(l);
+    }
+    function updateNavLang(l){
+      document.querySelectorAll('.nav-links a[href]').forEach(function(a){
+        var h=a.getAttribute('href');
+        if(h&&h!=='#'&&!h.startsWith('http'))a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');
+      });
+    }
+    function toggleMenu(){
+      var nav=document.querySelector('.nav-links');
+      var btn=document.getElementById('hamburger');
+      nav.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      a.addEventListener('click',function(){
+        document.querySelector('.nav-links').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+      });
+    });
+    if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
+      </script>
+  </body>
+</html>html>
+  </script></p>
+  </p></em></em>
+  </h1></li></li></span></span>
+    </nav>
+  </body>
+  </style></title>
+  </head>
