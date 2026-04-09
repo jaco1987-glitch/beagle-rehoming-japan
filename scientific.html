@@ -394,5 +394,27 @@ if(new URLSearchParams(window.location.search).get('lang')==='en')setLang('en');
 
 function toggleMenu(){var nav=document.querySelector(".nav-links");var btn=document.getElementById("hamburger");nav.classList.toggle("open");btn.classList.toggle("open");}
 </script>
+  <script>
+function setLang(l){
+  document.body.classList.toggle('lang-en',l==='en');
+  document.getElementById('btn-ja').classList.toggle('active',l!=='en');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  updateNavLang(l);
+}
+function updateNavLang(l){
+  document.querySelectorAll('.nav-links a, .footer-links a').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h&&h!=='#'&&!h.startsWith('http'))
+      a.href=h.split('?')[0]+(l==='en'?'?lang=en':'');
+  });
+}
+(function(){
+  if(new URLSearchParams(window.location.search).get('lang')==='en'){setLang('en');}
+})();
+function toggleMenu(){
+  document.querySelector('.nav-links').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+</script>
 </body>
 </html>
