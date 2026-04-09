@@ -549,7 +549,7 @@ function setLang(l){document.body.classList.toggle('lang-en',l==='en');document.
 
 // Update nav links with lang param
 function updateNavLang(l){
-  document.querySelectorAll('.nav-links a[href]').forEach(function(a){
+  document.querySelectorAll('.nav-links a[href], .footer-links a[href]').forEach(function(a){
     var href = a.getAttribute('href');
     if(href && href !== '#' && !href.startsWith('http')){
       a.href = href.split('?')[0] + (l==='en' ? '?lang=en' : '');
