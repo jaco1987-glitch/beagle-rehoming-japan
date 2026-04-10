@@ -71,19 +71,14 @@ tbody tr.highlight-dog td{color:var(--brown-dark);}
 .barrier-section .section-title{color:var(--white);}
 .barrier-section .section-title em{color:var(--brown-light);}
 .barrier-section .divider{background:var(--brown-light);}
-.accordion-item{border:1px solid rgba(255,255,255,.1);border-radius:8px;margin-bottom:.75rem;overflow:hidden;}
-.accordion-header{width:100%;background:rgba(255,255,255,.04);border:none;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;}
-.accordion-header:hover{background:rgba(255,255,255,.08);}
-.accordion-title{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.2rem;text-align:left;}
-.accordion-sub{font-size:.75rem;color:var(--brown-light);letter-spacing:.06em;text-align:left;}
-.accordion-icon{font-size:1.2rem;color:var(--brown-light);transition:transform .3s;flex-shrink:0;margin-left:1rem;}
-.accordion-item.open .accordion-icon{transform:rotate(45deg);}
-.accordion-body{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-.accordion-item.open .accordion-body{max-height:400px;}
-.accordion-content{padding:1.2rem 1.5rem 1.5rem;font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,.06);}
-.accordion-content ul{list-style:none;margin-top:.5rem;}
-.accordion-content ul li{padding-left:1.2rem;position:relative;margin-bottom:.3rem;}
-.accordion-content ul li::before{content:'\2014';position:absolute;left:0;color:var(--brown-light);}
+.barrier-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:900px;}
+.barrier-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1.6rem;border-top:3px solid var(--brown);}
+.barrier-card-label{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brown-light);margin-bottom:.6rem;}
+.barrier-card-title{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.7rem;}
+.barrier-card-body{font-size:.85rem;line-height:1.8;color:rgba(255,255,255,.65);margin-bottom:.8rem;}
+.barrier-list{list-style:none;}
+.barrier-list li{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.55);padding-left:1rem;position:relative;margin-bottom:.25rem;}
+.barrier-list li::before{content:'—';position:absolute;left:0;color:var(--brown-light);}
 .roadmap-section{padding:4.5rem 5rem;background:var(--cream);}
 .phase-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap;}
 .phase-tab{padding:.55rem 1.4rem;border:1.5px solid var(--gray-light);border-radius:4px;background:transparent;cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--gray);transition:all .2s;}
@@ -133,7 +128,7 @@ footer{background:var(--black);color:rgba(255,255,255,.45);padding:2rem 5rem;dis
 .nav-links.open{display:flex;flex-direction:column;position:fixed;top:58px;left:0;right:0;background:rgba(253,250,246,.98);padding:1rem 2rem 2rem;gap:.5rem;z-index:899;border-bottom:1px solid var(--brown-light);}
 nav{padding:.9rem 1.2rem;}.page-hero{padding:5.5rem 1.8rem 3rem;}
 .status-section,.data-section,.barrier-section,.roadmap-section,.role-section,.impact-section,.cta-section{padding:3.5rem 1.8rem;}
-.compare-grid,.role-cards,.impact-cards{grid-template-columns:1fr;}
+.compare-grid,.barrier-grid,.role-cards,.impact-cards{grid-template-columns:1fr;}
 footer{flex-direction:column;text-align:center;padding:1.8rem;}
 }
 </style>
@@ -262,47 +257,46 @@ footer{flex-direction:column;text-align:center;padding:1.8rem;}
   <div class="section-label"><span class="ja">課題</span><span class="en">The Barriers</span></div>
   <h2 class="section-title"><span class="ja">誰が、<em>何に困っているか</em></span><span class="en">Who faces <em>what</em></span></h2>
   <div class="divider"></div>
-  <div class="accordion-item" id="acc1">
-    <button class="accordion-header" onclick="toggleAcc('acc1')">
-      <div><div class="accordion-title"><span class="ja">研究機関・大学</span><span class="en">Research institutions &amp; universities</span></div><div class="accordion-sub"><span class="ja">やりたくても実行できない構造</span><span class="en">Willing but structurally unable</span></div></div>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-body"><div class="accordion-content">
-      <p><span class="ja">所管：文部科学省・厚生労働省。リホーミングの制度・手順が存在しないため、研究者が個人的に取り組もうとしても実行できません。</span><span class="en">Under MEXT and MHLW. Without established procedures, individual researchers cannot act even when motivated.</span></p>
-      <ul>
-        <li><span class="ja">譲渡後の責任（法的・倫理的）を引き受ける体制がない</span><span class="en">No framework for post-transfer legal or ethical liability</span></li>
-        <li><span class="ja">感染・健康リスクの評価基準がない</span><span class="en">No standard for health and infection risk assessment</span></li>
+  <div class="barrier-grid">
+    <div class="barrier-card">
+      <div class="barrier-card-label"><span class="ja">研究機関・大学</span><span class="en">Research institutions &amp; universities</span></div>
+      <div class="barrier-card-title"><span class="ja">やりたくても実行できない構造</span><span class="en">Willing but structurally unable</span></div>
+      <p class="barrier-card-body"><span class="ja">所管：文部科学省・厚生労働省。リホーミングの制度・手順が存在しないため、研究者が個人的に取り組もうとしても実行できません。</span><span class="en">Under MEXT and MHLW. Without established procedures, individual researchers cannot act even when motivated.</span></p>
+      <ul class="barrier-list">
+        <li><span class="ja">譲渡後の法的・倫理的責任を負う体制がない</span><span class="en">No framework for post-transfer legal or ethical liability</span></li>
         <li><span class="ja">倫理審査では標準外の扱いとなる</span><span class="en">No precedent within ethical review processes</span></li>
       </ul>
-    </div></div>
-  </div>
-  <div class="accordion-item" id="acc2">
-    <button class="accordion-header" onclick="toggleAcc('acc2')">
-      <div><div class="accordion-title"><span class="ja">行政</span><span class="en">Government</span></div><div class="accordion-sub"><span class="ja">ルールを作れない状態</span><span class="en">Unable to establish rules</span></div></div>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-body"><div class="accordion-content">
-      <p><span class="ja">リホーミングは環境省・文部科学省・厚生労働省にまたがる領域です。</span><span class="en">Rehoming falls across the jurisdictions of the Ministry of the Environment, MEXT, and MHLW.</span></p>
-      <ul>
+    </div>
+    <div class="barrier-card">
+      <div class="barrier-card-label"><span class="ja">行政</span><span class="en">Government</span></div>
+      <div class="barrier-card-title"><span class="ja">ルールを作れない状態</span><span class="en">Unable to establish rules</span></div>
+      <p class="barrier-card-body"><span class="ja">リホーミングは環境省・文部科学省・厚生労働省にまたがる領域です。</span><span class="en">Rehoming falls across the jurisdictions of the Ministry of the Environment, MEXT, and MHLW.</span></p>
+      <ul class="barrier-list">
         <li><span class="ja">省庁間の縦割り構造が制度化を阻む</span><span class="en">Siloed governance prevents coordinated policy</span></li>
         <li><span class="ja">参照できる成功モデルが存在しない</span><span class="en">No proven models to build policy around</span></li>
         <li><span class="ja">明確なガイドラインが存在しない</span><span class="en">No clear guidelines on rehoming exist</span></li>
       </ul>
-    </div></div>
-  </div>
-  <div class="accordion-item" id="acc3">
-    <button class="accordion-header" onclick="toggleAcc('acc3')">
-      <div><div class="accordion-title"><span class="ja">供給・関連企業</span><span class="en">Suppliers &amp; related companies</span></div><div class="accordion-sub"><span class="ja">出口が不安定</span><span class="en">An unstable exit</span></div></div>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-body"><div class="accordion-content">
-      <p><span class="ja">譲渡先の確保が困難で、調整コストが高く、社会との接点が弱いため、リホーミングを継続的な選択肢として維持することが難しい状況です。</span><span class="en">Securing recipient households is difficult, coordination costs are high, and public-facing channels are limited.</span></p>
-      <ul>
-        <li><span class="ja">譲渡希望者・受け入れ団体が限られている</span><span class="en">Limited adopters and organizations available</span></li>
+    </div>
+    <div class="barrier-card">
+      <div class="barrier-card-label"><span class="ja">ブリーダーならびに関連企業</span><span class="en">Breeders &amp; related companies</span></div>
+      <div class="barrier-card-title"><span class="ja">出口が不安定</span><span class="en">An unstable exit</span></div>
+      <p class="barrier-card-body"><span class="ja">譲渡先の確保が困難で、調整コストが高く、社会との接点が弱いため、リホーミングを継続的な選択肢として維持することが難しい状況です。</span><span class="en">Securing recipient households is difficult, coordination costs are high, and public-facing channels are limited.</span></p>
+      <ul class="barrier-list">
+        <li><span class="ja">受け入れ団体・里親候補が限られている</span><span class="en">Limited adopters and organizations available</span></li>
         <li><span class="ja">社会化不足の個体への対応体制がない</span><span class="en">No support system for animals with socialization gaps</span></li>
         <li><span class="ja">情報発信のチャネルが弱い</span><span class="en">Weak public communication channels</span></li>
       </ul>
-    </div></div>
+    </div>
+    <div class="barrier-card">
+      <div class="barrier-card-label"><span class="ja">社会</span><span class="en">Society</span></div>
+      <div class="barrier-card-title"><span class="ja">知らないから、動けない</span><span class="en">Unaware, and therefore unable to act</span></div>
+      <p class="barrier-card-body"><span class="ja">実験動物の存在自体が社会に広く知られておらず、リホーミングという選択肢があることも認知されていません。</span><span class="en">The existence of laboratory animals is not widely known, and the option of rehoming is even less recognized.</span></p>
+      <ul class="barrier-list">
+        <li><span class="ja">実験動物に関する情報が一般に届いていない</span><span class="en">Information about laboratory animals rarely reaches the public</span></li>
+        <li><span class="ja">里親・フォスターになれることを知らない</span><span class="en">Most people are unaware they can adopt or foster</span></li>
+        <li><span class="ja">支援の意思があっても手段がない</span><span class="en">Those who want to help have no clear way to do so</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 <section class="roadmap-section" id="roadmap">
