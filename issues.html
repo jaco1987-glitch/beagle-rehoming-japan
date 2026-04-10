@@ -9,7 +9,7 @@
 <style>
 :root{--white:#FDFAF6;--cream:#F5EFE6;--brown-light:#C4956A;--brown:#8B5E3C;--brown-dark:#5C3D1E;--black:#1A1008;--gray:#6B6058;--gray-light:#D9CFC4;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);}
+body{font-family:'Lato','Noto Serif JP',serif;background:var(--white);color:var(--black);overflow-x:hidden;}
 .lang-toggle{display:flex;border:1.5px solid var(--brown);border-radius:4px;overflow:hidden;background:var(--white);flex-shrink:0;}
 .lang-toggle button{padding:.32rem .75rem;border:none;background:transparent;cursor:pointer;font-size:.75rem;font-weight:700;color:var(--brown);}
 .lang-toggle button.active{background:var(--brown);color:var(--white);}
@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:cen
 .section-title em{font-style:italic;}
 .divider{width:38px;height:3px;background:var(--brown-light);border-radius:2px;margin:1rem 0 1.8rem;}
 .status-section{padding:4.5rem 5rem;background:var(--white);}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1rem;}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1rem;max-width:860px;}
 .compare-card{border-radius:10px;padding:2rem;}
 .compare-card.positive{border-top:3px solid var(--brown-light);background:var(--cream);}
 .compare-card.negative{border-top:3px solid #999;background:#f5f5f0;}
@@ -43,7 +43,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:cen
 .compare-card p{font-size:.88rem;line-height:1.85;color:var(--gray);}
 .compare-card ul{list-style:none;margin-top:.8rem;}
 .compare-card ul li{font-size:.85rem;line-height:1.7;color:var(--gray);padding-left:1rem;position:relative;margin-bottom:.2rem;}
-.compare-card ul li::before{content:'/2014';position:absolute;left:0;color:var(--brown-light);}
+.compare-card ul li::before{content:'\2014';position:absolute;left:0;color:var(--brown-light);}
 .compare-verdict{display:inline-block;margin-top:1rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;padding:.3rem .9rem;border-radius:3px;}
 .compare-card.positive .compare-verdict{background:var(--brown-light);color:var(--white);}
 .compare-card.negative .compare-verdict{background:var(--gray);color:var(--white);}
@@ -83,7 +83,7 @@ tbody tr.highlight-dog td{color:var(--brown-dark);}
 .accordion-content{padding:1.2rem 1.5rem 1.5rem;font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,.06);}
 .accordion-content ul{list-style:none;margin-top:.5rem;}
 .accordion-content ul li{padding-left:1.2rem;position:relative;margin-bottom:.3rem;}
-.accordion-content ul li::before{content:'2014';position:absolute;left:0;color:var(--brown-light);}
+.accordion-content ul li::before{content:'\2014';position:absolute;left:0;color:var(--brown-light);}
 .roadmap-section{padding:4.5rem 5rem;background:var(--cream);}
 .phase-tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap;}
 .phase-tab{padding:.55rem 1.4rem;border:1.5px solid var(--gray-light);border-radius:4px;background:transparent;cursor:pointer;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--gray);transition:all .2s;}
@@ -175,7 +175,7 @@ footer{flex-direction:column;text-align:center;padding:1.8rem;}
   <div class="divider"></div>
   <div class="compare-grid">
     <div class="compare-card positive">
-      <div class="compare-card-label"><span class="ja">EU・海外</span><span class="en">EU &amp; Overseas</span></div>
+      <div class="compare-card-label"><span class="ja">海外（EU）</span><span class="en">Overseas (EU)</span></div>
       <h3><span class="ja">制度として確立</span><span class="en">Formally established</span></h3>
       <p><span class="ja">EU指令（2010/63/EU）のもと、実験終了後の動物の譲渡が制度として認められています。</span><span class="en">Under EU Directive 2010/63/EU, rehoming of animals after experimentation is formally recognized.</span></p>
       <ul>
